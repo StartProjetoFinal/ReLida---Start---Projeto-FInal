@@ -1,5 +1,5 @@
-GRUPO3
-ODS. 4 Educação de Qualidade
+*GRUPO3
+ODS. 4 Educação de Qualidade*
 • Bruno França
 • Francisco Lira
 • Larissa Lima
