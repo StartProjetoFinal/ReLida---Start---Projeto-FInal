@@ -8,36 +8,37 @@ Algoritmo "ReLida_Login_Cadastro."
 // essa função, que RETORNA -1 caso o email seja vazio ou não tenha um @.
 // Podemos dar outras restrições para nome e senha e criar outras funções
 // de teste, ou até mesmo fazer tudo numa única função de teste. Sugestões?
-função testemail: inteiro
+
+funcao testemail: inteiro
        var aux: inteiro
-       
+
        inicio
        aux <- 1
        se (email = "") ou (Pos("@", email) = 0) entao
           aux <- -1
        fimse
-          
+
        retorne aux
 fimfuncao
 
-       
+
 
 Var
    resposta,perguntaSeguranca,respostaSeguranca:inteiro
-   email,nome,senha,confSenha,c :caractere
+   email,nome,senha,confSenha,controle :caractere
 
 
 Inicio
-c<- "n"
+controle<- "negativo"
    escreval("Bem-vindo a ReLida.Sua plataforma de venda,troca e doação de livros!")
    escreval("----------------------------------------------------------------")
    escreval("Você já possui conta na nossa plataforma?")
-   escreval("Digite 1-Sim e 2-Não:")
+   escreval("Digite 1=Sim ou 2=Não:") //troquei o - pelo =, e tambem o e pelo ou
    leia(resposta)
    limpatela
    escolha resposta
    caso 1
-   enquanto c = "n" faca
+   enquanto controle = "negativo" faca
          escreval("Digite seu email:")
          leia(email)
          limpatela
@@ -47,11 +48,11 @@ c<- "n"
             //limpatela   -coloquei limpatela logo depois de ter lido o nome,
             // porque a mensagem "Digite um email valido" é apagada muito rápido.
             senao
-                 c <- "v"
+                 controle <- "valido"
             fimse
          fimenquanto
-         c<-"n"
-         enquanto c = "n" faca
+         controle<-"negativo"
+         enquanto controle = "negativo" faca
            escreval("Digite sua senha: ")
          leia(senha)
          limpatela
@@ -59,12 +60,12 @@ c<- "n"
             escreval("Digite uma senha valida")
             //limpatela
             senao
-                 c <- "v"
+                 controle <- "valido"
             fimse
          fimenquanto
       escreval("Você entrou na ReLida!Fique a vontade para conhecer o nosso catalogo!")
    caso 2
-      escreval("Deseja fazer cadastro? Digite 1-Sim e 2-Não:")
+      escreval("Deseja fazer cadastro? Digite 1=Sim ou 2=Não:") //troquei o - pelo =, e tambem o e pelo ou
       leia(resposta)
       limpatela
       se resposta = 1 entao
@@ -75,7 +76,7 @@ c<- "n"
                   // situação que atribuir ou não essa variável (aqui) afete
                   // os resultados, favor entrar em contato.
                   // Isso não é uma falta grave e não atrapalha o funcionamento do código.
-           enquanto c = "n" faca
+           enquanto controle = "negativo" faca
            escreval("Digite seu nome: ")
          leia(nome)
          limpatela
@@ -83,11 +84,11 @@ c<- "n"
             escreval("Digite um nome valido")
             //limpatela
             senao
-                 c <- "v"
+                 controle <- "valido"
             fimse
          fimenquanto
-         c<- "n"
-         enquanto c = "n" faca
+         controle <- "negativo"
+         enquanto controle = "negativo" faca
            escreval("Digite seu email: ")
          leia(email)
          limpatela
@@ -97,11 +98,11 @@ c<- "n"
             //limpatela   -coloquei limpatela logo depois de ter lido o nome,
             // porque a mensagem "Digite um email valido" é apagada muito rápido.
             senao
-                 c <- "v"
+                 controle <- "valido"
             fimse
          fimenquanto
-         c<-"n"
-         enquanto c = "n" faca
+         controle<-"negativo"
+         enquanto controle = "negativo" faca
            escreval("Digite sua senha: ")
          leia(senha)
          limpatela
@@ -109,7 +110,7 @@ c<- "n"
             escreval("Digite uma senha valida")
             //limpatela
             senao
-                 c <- "v"
+                 controle <- "valido"
             fimse
          fimenquanto
          escreval("Confirme sua senha:")
@@ -119,13 +120,13 @@ c<- "n"
             leia (confSenha)
          fimenquanto
          limpatela
-         
+
          // Pergunta de segurança:
          escreval("Escolha uma pergunta de segurança, para ser utilizada caso algum dia você esqueça sua senha.")
-         
+
          // Aqui, utilizo o enquanto para garantir que o usuário digite 1, 2 ou 3.
-         c <- "n"
-         enquanto c = "n" faca
+         controle <- "negativo"
+         enquanto controle = "negativo" faca
                   escreval("Escolha uma opção válida:")
                   escreval("1- Animal de estimação de infancia.")
                   escreval("2- Melhor amigo da infancia.")
@@ -134,13 +135,13 @@ c<- "n"
                   limpatela
                   escolha perguntaSeguranca
                           caso 1,2,3
-                               c <- "v"
+                               controle <- "valido"
                           outrocaso
                                escreva("Opção inválida.")
 
                   fimescolha
          fimenquanto
-            
+
          escolha perguntaSeguranca
          caso 1
             escreval("Escreva o nome do seu animal de estimação da infancia:")
