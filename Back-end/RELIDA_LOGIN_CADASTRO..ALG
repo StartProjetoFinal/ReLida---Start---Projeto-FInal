@@ -14,13 +14,24 @@ funcao testemail: inteiro
 
        inicio
        aux <- 1
-       se (email = "") ou (Pos("@", email) = 0) entao
+       se (email = "") ou (Pos("@", email) = 0)  ou (Pos(".com", email) = 0)  entao
           aux <- -1
        fimse
 
        retorne aux
 fimfuncao
+                funcao testvalidacao: inteiro
+       var validacao: inteiro
 
+       inicio
+       se (resposta = 1) ou (resposta = 2) entao
+       validacao <- 1
+       senao
+       validacao <- 0
+       fimse
+
+       retorne validacao
+fimfuncao
 
 
 Var
@@ -35,6 +46,13 @@ controle<- "negativo"
    escreval("Você já possui conta na nossa plataforma?")
    escreval("Digite 1=Sim ou 2=Não:") //troquei o - pelo =, e tambem o e pelo ou
    leia(resposta)
+   enquanto testvalidacao = 0 faca // feito para validar as repostas 1 e 2
+   se testvalidacao = 0 entao
+   escreval ("Por favor digite uma das alternativas")
+   leia (resposta)
+   senao
+   fimse
+   fimenquanto
    limpatela
    escolha resposta
    caso 1
@@ -67,7 +85,14 @@ controle<- "negativo"
    caso 2
       escreval("Deseja fazer cadastro? Digite 1=Sim ou 2=Não:") //troquei o - pelo =, e tambem o e pelo ou
       leia(resposta)
-      limpatela
+   enquanto testvalidacao = 0 faca//Feito para valdiar as respostas 1 e 2
+   se testvalidacao = 0 entao
+   escreval ("Por favor digite uma das alternativas")
+   leia (resposta)
+   senao
+   fimse
+   fimenquanto
+   limpatela
       se resposta = 1 entao
       //c<-"n"    Quando a execução se encontra nessa linha,
                   //a variável já possui esse valor, e nunca voltará a
