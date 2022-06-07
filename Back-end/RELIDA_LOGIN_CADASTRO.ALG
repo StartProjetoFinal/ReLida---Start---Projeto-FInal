@@ -1,20 +1,20 @@
 Algoritmo "ReLida_Login_Cadastro."
-// Disciplina   : [Lógica de Programação]
-// Descrição   : Protótipo para as telas de login e cadastro.
+// Disciplina   : [LÃ³gica de ProgramaÃ§Ã£o]
+// DescriÃ§Ã£o   : ProtÃ³tipo para as telas de login e cadastro.
 // Autor(a)    : Grupo Start
 // Data atual  : 02/06/2022
 
-// Nos 'se' que continham 'email = ""' como condição, substituí utilizando
-// essa função, que RETORNA -1 caso o email seja vazio ou não tenha um @.
-// Podemos dar outras restrições para nome e senha e criar outras funções
-// de teste, ou até mesmo fazer tudo numa única função de teste. Sugestões?
+// Nos 'se' que continham 'email = ""' como condiÃ§Ã£o, substituÃ­ utilizando
+// essa funÃ§Ã£o, que RETORNA -1 caso o email seja vazio ou nÃ£o tenha um @.
+// Podemos dar outras restriÃ§Ãµes para nome e senha e criar outras funÃ§Ãµes
+// de teste, ou atÃ© mesmo fazer tudo numa Ãºnica funÃ§Ã£o de teste. SugestÃµes?
 
 funcao testemail: inteiro
        var aux: inteiro
 
        inicio
        aux <- 1
-       se (email = "") ou (Pos("@", email) = 0) entao
+       se (email = "") ou (Pos("@", email) = 0)  ou (Pos(".com", email) = 0)  entao
           aux <- -1
        fimse
 
@@ -30,10 +30,10 @@ Var
 
 Inicio
 controle<- "negativo"
-   escreval("Bem-vindo a ReLida.Sua plataforma de venda,troca e doação de livros!")
+   escreval("Bem-vindo a ReLida.Sua plataforma de venda,troca e doaÃ§Ã£o de livros!")
    escreval("----------------------------------------------------------------")
-   escreval("Você já possui conta na nossa plataforma?")
-   escreval("Digite 1=Sim ou 2=Não:") //troquei o - pelo =, e tambem o e pelo ou
+   escreval("VocÃª jÃ¡ possui conta na nossa plataforma?")
+   escreval("Digite 1=Sim ou 2=NÃ£o:") //troquei o - pelo =, e tambem o e pelo ou
    leia(resposta)
    limpatela
    escolha resposta
@@ -42,11 +42,11 @@ controle<- "negativo"
          escreval("Digite seu email:")
          leia(email)
          limpatela
-         // Utiliza função:
+         // Utiliza funÃ§Ã£o:
          se testemail = -1 entao
             escreval("Digite um email valido")
             //limpatela   -coloquei limpatela logo depois de ter lido o nome,
-            // porque a mensagem "Digite um email valido" é apagada muito rápido.
+            // porque a mensagem "Digite um email valido" Ã© apagada muito rÃ¡pido.
             senao
                  controle <- "valido"
             fimse
@@ -63,19 +63,19 @@ controle<- "negativo"
                  controle <- "valido"
             fimse
          fimenquanto
-      escreval("Você entrou na ReLida!Fique a vontade para conhecer o nosso catalogo!")
+      escreval("VocÃª entrou na ReLida!Fique a vontade para conhecer o nosso catalogo!")
    caso 2
-      escreval("Deseja fazer cadastro? Digite 1=Sim ou 2=Não:") //troquei o - pelo =, e tambem o e pelo ou
+      escreval("Deseja fazer cadastro? Digite 1=Sim ou 2=NÃ£o:") //troquei o - pelo =, e tambem o e pelo ou
       leia(resposta)
       limpatela
       se resposta = 1 entao
-      //c<-"n"    Quando a execução se encontra nessa linha,
-                  //a variável já possui esse valor, e nunca voltará a
-                  // executar essa linha, pois não está dentro de nenhuma
-                  //estrutura de repetição.  Caso seja encontrado alguma
-                  // situação que atribuir ou não essa variável (aqui) afete
+      //c<-"n"    Quando a execuÃ§Ã£o se encontra nessa linha,
+                  //a variÃ¡vel jÃ¡ possui esse valor, e nunca voltarÃ¡ a
+                  // executar essa linha, pois nÃ£o estÃ¡ dentro de nenhuma
+                  //estrutura de repetiÃ§Ã£o.  Caso seja encontrado alguma
+                  // situaÃ§Ã£o que atribuir ou nÃ£o essa variÃ¡vel (aqui) afete
                   // os resultados, favor entrar em contato.
-                  // Isso não é uma falta grave e não atrapalha o funcionamento do código.
+                  // Isso nÃ£o Ã© uma falta grave e nÃ£o atrapalha o funcionamento do cÃ³digo.
            enquanto controle = "negativo" faca
            escreval("Digite seu nome: ")
          leia(nome)
@@ -92,11 +92,11 @@ controle<- "negativo"
            escreval("Digite seu email: ")
          leia(email)
          limpatela
-         // Utiliza função:
+         // Utiliza funÃ§Ã£o:
          se testemail = -1 entao
             escreval("Digite um email valido")
             //limpatela   -coloquei limpatela logo depois de ter lido o nome,
-            // porque a mensagem "Digite um email valido" é apagada muito rápido.
+            // porque a mensagem "Digite um email valido" Ã© apagada muito rÃ¡pido.
             senao
                  controle <- "valido"
             fimse
@@ -116,19 +116,19 @@ controle<- "negativo"
          escreval("Confirme sua senha:")
          leia(confSenha)
          enquanto senha <> confSenha faca
-            escreval("As senhas não sao correspondentes.Confirme sua senha novamente!")
+            escreval("As senhas nÃ£o sao correspondentes.Confirme sua senha novamente!")
             leia (confSenha)
          fimenquanto
          limpatela
 
-         // Pergunta de segurança:
-         escreval("Escolha uma pergunta de segurança, para ser utilizada caso algum dia você esqueça sua senha.")
+         // Pergunta de seguranÃ§a:
+         escreval("Escolha uma pergunta de seguranÃ§a, para ser utilizada caso algum dia vocÃª esqueÃ§a sua senha.")
 
-         // Aqui, utilizo o enquanto para garantir que o usuário digite 1, 2 ou 3.
+         // Aqui, utilizo o enquanto para garantir que o usuÃ¡rio digite 1, 2 ou 3.
          controle <- "negativo"
          enquanto controle = "negativo" faca
-                  escreval("Escolha uma opção válida:")
-                  escreval("1- Animal de estimação de infancia.")
+                  escreval("Escolha uma opÃ§Ã£o vÃ¡lida:")
+                  escreval("1- Animal de estimaÃ§Ã£o de infancia.")
                   escreval("2- Melhor amigo da infancia.")
                   escreval("3- Livro preferido.")
                   leia(perguntaSeguranca)
@@ -137,14 +137,14 @@ controle<- "negativo"
                           caso 1,2,3
                                controle <- "valido"
                           outrocaso
-                               escreva("Opção inválida.")
+                               escreva("OpÃ§Ã£o invÃ¡lida.")
 
                   fimescolha
          fimenquanto
 
          escolha perguntaSeguranca
          caso 1
-            escreval("Escreva o nome do seu animal de estimação da infancia:")
+            escreval("Escreva o nome do seu animal de estimaÃ§Ã£o da infancia:")
             leia(respostaSeguranca)
          caso 2
             escreval("Escreva o nome do seu melhor amigo da infancia:")
@@ -154,20 +154,20 @@ controle<- "negativo"
             leia(respostaSeguranca)
             limpatela
          outrocaso
-            escreval("Opção invalida.")
+            escreval("OpÃ§Ã£o invalida.")
          fimescolha
          escreval("Seu cadastro foi finalizado com sucesso!")
       senao
          escreval("Continue navegando na nossa plataforma e volte sempre!")
-      fimse  // Ver próximo comentário.
+      fimse  // Ver prÃ³ximo comentÃ¡rio.
       outrocaso
          escreval("Continue navegando na nossa plataforma e volte sempre!")
       fimescolha
    //fimse        Aparentemente o visualg perminte colocar o 'fimse' aqui ou
-                  // logo após o senão. Coloquei em cima porque o "se" está
-                  //dentro do 'escolha', e por isso, por convenção se coloca antes
+                  // logo apÃ³s o senÃ£o. Coloquei em cima porque o "se" estÃ¡
+                  //dentro do 'escolha', e por isso, por convenÃ§Ã£o se coloca antes
                   // do 'fimescolha'.
-                  // Isso não é uma falta grave e não atrapalha o funcionamento do código.
+                  // Isso nÃ£o Ã© uma falta grave e nÃ£o atrapalha o funcionamento do cÃ³digo.
 fimescolha
 
 
