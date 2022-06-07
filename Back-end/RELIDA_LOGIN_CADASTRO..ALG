@@ -32,7 +32,7 @@ c<- "n"
    escreval("Bem-vindo a ReLida.Sua plataforma de venda,troca e doação de livros!")
    escreval("----------------------------------------------------------------")
    escreval("Você já possui conta na nossa plataforma?")
-   escreval("Digite 1-Sim e 2-Não:")
+    escreval("Digite 1=Sim ou 2=Não:")
    leia(resposta)
    limpatela
    escolha resposta
@@ -64,7 +64,7 @@ c<- "n"
          fimenquanto
       escreval("Você entrou na ReLida!Fique a vontade para conhecer o nosso catalogo!")
    caso 2
-      escreval("Deseja fazer cadastro? Digite 1-Sim e 2-Não:")
+      escreval("Deseja fazer cadastro? Digite 1=Sim ou 2=Não:")
       leia(resposta)
       limpatela
       se resposta = 1 entao
