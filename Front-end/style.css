@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+
+body {
+    background-color: rgba(0, 0, 0, 1);
+    color: aliceblue;
+}
+
+header {
+    display: flex;
+    height: 300px;
+}
+#NomeLogo {
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Padauk:wght@700&display=swap');
+    font-family: 'Inter', sans-serif;
+    font-size: 150px;
+    font-style: italic;
+    display:contents;
+    margin: 0px 600px;
+    padding: 0px 0px;
+    border: 0px 0px;
+    color: rgba(243, 119, 6, 1);
+}
