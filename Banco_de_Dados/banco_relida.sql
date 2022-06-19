@@ -35,6 +35,7 @@ CREATE TABLE `anuncios` (
   `n_cep` int DEFAULT NULL,
   `c_comentario_anunciantes` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `b_fotos` blob,
+  `d_anuncios` datetime DEFAULT NULL,
   PRIMARY KEY (`id_anuncios`),
   KEY `fk_id_anunciante_idx` (`id_anunciante`),
   KEY `fk_id_tipo_operacao_idx` (`id_tipo_operacao`),
@@ -114,6 +115,7 @@ DROP TABLE IF EXISTS `comentarios`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comentarios` (
   `id_comentarios` int NOT NULL AUTO_INCREMENT,
+  `d_comentarios` datetime DEFAULT NULL,
   `c_comentarios` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `id_usuarios` int DEFAULT NULL,
   `id_anuncios` int DEFAULT NULL,
@@ -197,7 +199,15 @@ DROP TABLE IF EXISTS `operacoes`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `operacoes` (
   `id_operacoes` int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_operacoes`)
+  `id_anuncios` int DEFAULT NULL,
+  `id_consumidor` int DEFAULT NULL,
+  `c_comentarioperacao` varchar(256) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id_operacoes`),
+  UNIQUE KEY `id_operacoes_UNIQUE` (`id_operacoes`),
+  KEY `fk_id_anuncios_idx` (`id_anuncios`),
+  KEY `id_consumidor_idx` (`id_consumidor`),
+  CONSTRAINT `id_anuncios` FOREIGN KEY (`id_anuncios`) REFERENCES `anuncios` (`id_anuncios`),
+  CONSTRAINT `id_consumidor` FOREIGN KEY (`id_consumidor`) REFERENCES `usuarios` (`id_usuarios`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -222,7 +232,7 @@ CREATE TABLE `perguntas_seg` (
   `c_perguntas` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id_perguntas`),
   UNIQUE KEY `c_perguntas_UNIQUE` (`c_perguntas`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,6 +241,7 @@ CREATE TABLE `perguntas_seg` (
 
 LOCK TABLES `perguntas_seg` WRITE;
 /*!40000 ALTER TABLE `perguntas_seg` DISABLE KEYS */;
+INSERT INTO `perguntas_seg` VALUES (1,'Animal Favorito'),(3,'Livro favorito'),(2,'Melhor amigo de infÃ¢ncia');
 /*!40000 ALTER TABLE `perguntas_seg` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,6 +280,7 @@ CREATE TABLE `usuarios` (
   `id_usuarios` int NOT NULL AUTO_INCREMENT,
   `c_nome` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `c_email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `c_senhas` varchar(25) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `id_perguntas` int DEFAULT NULL,
   `c_respostaseg` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `c_interesses` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -280,10 +292,11 @@ CREATE TABLE `usuarios` (
   KEY `fk_id_cidades_idx` (`id_cidades`),
   KEY `fk_id_pedidos_idx` (`id_pedidos`),
   KEY `fk_id_perguntas_idx` (`id_perguntas`),
+  KEY `fklasdfjkas_idx` (`c_senhas`),
   CONSTRAINT `fk_id_cidades` FOREIGN KEY (`id_cidades`) REFERENCES `cidades` (`id`),
   CONSTRAINT `fk_id_pedidos` FOREIGN KEY (`id_pedidos`) REFERENCES `operacoes` (`id_operacoes`),
   CONSTRAINT `fk_id_perguntas` FOREIGN KEY (`id_perguntas`) REFERENCES `perguntas_seg` (`id_perguntas`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -304,4 +317,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-17  5:05:42
+-- Dump completed on 2022-06-19 19:53:59
