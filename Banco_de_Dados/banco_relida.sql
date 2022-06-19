@@ -231,6 +231,7 @@ CREATE TABLE `perguntas_seg` (
 
 LOCK TABLES `perguntas_seg` WRITE;
 /*!40000 ALTER TABLE `perguntas_seg` DISABLE KEYS */;
+INSERT INTO `perguntas_seg` VALUES (1,'Animal Favorito'),(2,'Melhor amigo de infância'),(3,'Livro favorito');
 /*!40000 ALTER TABLE `perguntas_seg` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,6 +270,7 @@ CREATE TABLE `usuarios` (
   `id_usuarios` int NOT NULL AUTO_INCREMENT,
   `c_nome` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `c_email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `senha` varchar(8) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `id_perguntas` int DEFAULT NULL,
   `c_respostaseg` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `c_interesses` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -292,6 +294,33 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+
+INSERT INTO `usuarios` (`id_usuarios`,`c_nome`,`c_email`,`senha`,`id_perguntas`,`c_respostaseg`,`c_interesses`,`id_cidades`,`n_avaliacao`,`id_pedidos`)
+VALUES
+  (1,"Kieran Downs","consequat@icloud.couk","OMB04VQC6UE",2,"Shirlley","Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar",3191,1,1),
+  (2,"Damian Preston","egestas@google.net","TBX52HDK5NF",1,"Cachorro","Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar Ação",1018,2,2),
+  (3,"Garth Jackson","facilisis.suspendisse@yahoo.ca","ATW73VWM7VI",2,"Larissa","Romance, Fantasia,",720,3,3),
+  (4,"Paki Short","id.risus.quis@aol.couk","YHS27YRF8DM",2,"Francisco","Drama, Romance, Fantasia, Ler, Doar, Vender,",2815,1,4),
+  (5,"Juliet Holcomb","vel.venenatis@yahoo.org","WES21BVT0OW",3,"Drácula","Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar",2931,1,5),
+  (6,"Macaulay Brennan","velit.egestas@icloud.org","FGK38MIV4GG",2,"Bruno","Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar Ação",149,2,6),
+  (7,"Cally Anderson","cursus.diam@outlook.net","HPR63YIW8EY",1,"Cachorro","Romance, Fantasia, Ler, Doar, Vender, Trocar",4230,3,7),
+  (8,"Rafael Santiago","arcu.vestibulum@outlook.org","LQF00TNO2FQ",3,"O menino de Pijama Listrado","Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar Ação",4173,2,8),
+  (9,"Hop Crosby","dolor.sit.amet@aol.ca","BQP33CFG2KI",2,"Marcelo","Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar",2994,3,9),
+  (10,"Tate Juarez","eu@icloud.edu","VXU93WTY8UA",3,"O lado bom da vida","Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar",196,2,10);
+  
+INSERT INTO `usuarios` (`id_usuarios`,`c_nome`,`c_email`,`senha`,`id_perguntas`,`c_respostaseg`,`c_interesses`,`id_cidades`,`n_avaliacao`,`id_pedidos`)
+VALUES
+  (11,"Gabriel Robles","quis@hotmail.com","EYT11JOF1XQ",3,"A culpa é das estrelas","Fantasia, Ler, Doar, Vender, Trocar",798,2,11),
+  (12,"Forrest Richardson","turpis.egestas@icloud.couk","YRI93BIJ4QQ",2,"Ana","Drama, Romance, Fantasia, Ler,",2137,3,12),
+  (13,"Wylie Cote","adipiscing.elit@outlook.com","XIQ84QXP1ZO",2,"Wandemberg","Doar, Vender, Trocar",3653,5,13),
+  (14,"Gisela Morton","bibendum@yahoo.org","LUD67VGV9DT",1,"Gato","Fantasia, Ler,",3022,3,14),
+  (15,"Audra Valenzuela","feugiat.metus@aol.com","QVR50SBT2CB",2,"Ana","Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar Ação",1168,2,15),
+  (16,"Clio Singleton","ipsum@google.com","EEE73UUW2PK",2,"Julia","Fantasia, Ler, Doar, Vender, Trocar",2425,3,16),
+  (17,"Kellie Glover","phasellus.dapibus@google.com","SJE76VRF8US",2,"Roberta","Fantasia, Ler, Doar, Vender,",3523,5,17),
+  (18,"Aurelia Nichols","et.magnis.dis@hotmail.org","DML67GLW4JF",2,"Maria","Fantasia, Ler, Doar, Vender,",4622,2,18),
+  (19,"Renee Lawson","luctus.vulputate@protonmail.couk","SKY37OSC2QS",3,"O mundo da criança","Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar Ação",790,1,19),
+  (20,"Colton Burris","et.risus@yahoo.edu","SJZ56KMH6QZ",2,"Marcos","Fantasia, Ler, Doar, Vender,",5416,5,20);
+
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
