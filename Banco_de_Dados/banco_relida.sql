@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
--- Host: localhost    Database: relida
+-- Host: 127.0.0.1    Database: relida
 -- ------------------------------------------------------
 -- Server version	8.0.29
 
@@ -43,7 +43,7 @@ CREATE TABLE `anuncios` (
   CONSTRAINT `fk_id_anunciante` FOREIGN KEY (`id_anunciante`) REFERENCES `usuarios` (`id_usuarios`),
   CONSTRAINT `fk_id_categorias_livros` FOREIGN KEY (`id_categorias_livros`) REFERENCES `categorias_livros` (`id_categorias`),
   CONSTRAINT `fk_id_tipo_operacao` FOREIGN KEY (`id_tipo_operacao`) REFERENCES `tipos_operacoes` (`id_tipo_operacoes`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,6 +52,7 @@ CREATE TABLE `anuncios` (
 
 LOCK TABLES `anuncios` WRITE;
 /*!40000 ALTER TABLE `anuncios` DISABLE KEYS */;
+INSERT INTO `anuncios` VALUES (1,9,1,0,'ipsum non','Harper Peterson','0000-00-00',2,'False',83311,'Donec vitae erat',_binary 'False','0000-00-00 00:00:00'),(2,11,1,0,'Nullam velit','Christen Lawrence','0000-00-00',10,'False',60184,'nibh lacinia orci,',_binary 'False','0000-00-00 00:00:00'),(3,17,3,0,'Nulla eget','Orla Becker','0000-00-00',6,'False',64078,'dolor vitae dolor.',_binary 'False','0000-00-00 00:00:00'),(4,15,1,0,'ante bibendum','Denise Foster','0000-00-00',5,'False',69053,'consectetuer mauris id',_binary 'False','0000-00-00 00:00:00'),(5,11,2,0,'Mauris eu','Jaime Stark','0000-00-00',8,'False',13272,'non lorem vitae',_binary 'False','0000-00-00 00:00:00'),(6,9,1,0,'Fusce feugiat.','Herrod Woodard','0000-00-00',3,'False',68926,'sed,',_binary 'No','0000-00-00 00:00:00'),(7,8,10,0,'nibh lacinia','Hector Norman','0000-00-00',7,'False',49027,'sollicitudin orci sem eget',_binary 'No','0000-00-00 00:00:00'),(8,7,9,0,'et arcu','Virginia Salas','0000-00-00',3,'False',71805,'sit amet',_binary 'No','0000-00-00 00:00:00'),(9,0,6,0,'tempor lorem,','Hayden O\'Neill','0000-00-00',7,'False',79052,'interdum feugiat. Sed',_binary 'No','0000-00-00 00:00:00'),(10,1,5,0,'nec urna','Talon Kemp','0000-00-00',2,'False',71615,'massa non',_binary 'No','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `anuncios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -67,7 +68,7 @@ CREATE TABLE `categorias_livros` (
   `c_categorias` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id_categorias`),
   UNIQUE KEY `c_categorias_UNIQUE` (`c_categorias`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,6 +77,7 @@ CREATE TABLE `categorias_livros` (
 
 LOCK TABLES `categorias_livros` WRITE;
 /*!40000 ALTER TABLE `categorias_livros` DISABLE KEYS */;
+INSERT INTO `categorias_livros` VALUES (15,'Autoajuda'),(14,'Autobiografia'),(13,'Biografia'),(2,'Drama'),(3,'Fantasia'),(4,'Ficção'),(6,'História em quadrinhos'),(7,'Literatura Brasileira'),(10,'Literatura Estrangeira'),(11,'Literatura Ficcional'),(8,'Literatura Infantil'),(9,'Literatura Infanto-Juvenil'),(1,'Romance'),(5,'Suspense'),(12,'Terror');
 /*!40000 ALTER TABLE `categorias_livros` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,7 +129,7 @@ CREATE TABLE `comentarios` (
   CONSTRAINT `fk_id_anuncios` FOREIGN KEY (`id_anuncios`) REFERENCES `anuncios` (`id_anuncios`),
   CONSTRAINT `fk_id_recomentarios` FOREIGN KEY (`id_recomentarios`) REFERENCES `comentarios` (`id_comentarios`),
   CONSTRAINT `fk_id_usuarios` FOREIGN KEY (`id_usuarios`) REFERENCES `usuarios` (`id_usuarios`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,6 +138,7 @@ CREATE TABLE `comentarios` (
 
 LOCK TABLES `comentarios` WRITE;
 /*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
+INSERT INTO `comentarios` VALUES (1,'2022-10-12 22:37:04','gostei do livro, muito interessante!',1,7,NULL),(2,'2022-10-12 22:45:55','sim, e o final é surpreendente',2,7,1),(3,'2022-11-07 13:02:58','Oh! HP, gosto da saga, já quero ler',4,9,NULL),(4,'2022-11-07 15:14:00','Tava querendo esse livro, encontrei',12,9,NULL),(5,'2022-11-07 20:00:02','Muito massa!',18,9,NULL),(6,'2022-11-08 10:15:03','Esse livro é muito bom, pô',7,9,NULL),(7,'2022-11-08 10:25:49','Que mentira, pô',5,9,6),(8,'2022-11-10 12:46:01','Concordo!!',10,9,6),(9,'2022-11-18 17:30:22','Vale a pena perder tempo nesse livro não',19,9,NULL),(10,'2022-11-20 00:00:23','Harry Potter é bom demais',20,9,NULL);
 /*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,7 +181,7 @@ CREATE TABLE `ofertas` (
   PRIMARY KEY (`id_ofertas`),
   KEY `fk_id_anuncios_idx` (`id_anuncios`),
   CONSTRAINT `fk_id_anuncios_ofertas` FOREIGN KEY (`id_anuncios`) REFERENCES `anuncios` (`id_anuncios`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,6 +190,7 @@ CREATE TABLE `ofertas` (
 
 LOCK TABLES `ofertas` WRITE;
 /*!40000 ALTER TABLE `ofertas` DISABLE KEYS */;
+INSERT INTO `ofertas` VALUES (1,0,3),(2,0,3),(3,0,8),(4,0,6),(5,0,3),(6,0,8),(7,0,10),(8,0,2),(9,0,2),(10,0,9);
 /*!40000 ALTER TABLE `ofertas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,14 +205,14 @@ CREATE TABLE `operacoes` (
   `id_operacoes` int NOT NULL AUTO_INCREMENT,
   `id_anuncios` int DEFAULT NULL,
   `id_consumidor` int DEFAULT NULL,
-  `c_comentarioperacao` varchar(256) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `c_comentarioperacao` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_operacoes`),
   UNIQUE KEY `id_operacoes_UNIQUE` (`id_operacoes`),
   KEY `fk_id_anuncios_idx` (`id_anuncios`),
   KEY `id_consumidor_idx` (`id_consumidor`),
   CONSTRAINT `id_anuncios` FOREIGN KEY (`id_anuncios`) REFERENCES `anuncios` (`id_anuncios`),
   CONSTRAINT `id_consumidor` FOREIGN KEY (`id_consumidor`) REFERENCES `usuarios` (`id_usuarios`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -217,6 +221,7 @@ CREATE TABLE `operacoes` (
 
 LOCK TABLES `operacoes` WRITE;
 /*!40000 ALTER TABLE `operacoes` DISABLE KEYS */;
+INSERT INTO `operacoes` VALUES (1,10,2,'O livro está em ótimo estado'),(2,1,1,'O livro está rasgado'),(3,2,3,'O livro está faltando folhas'),(4,3,5,'O livro chegou antes do prazo'),(5,4,4,'O estado do livro é melhor do que imaginei'),(6,5,6,'Chegouoperacoesoperacoes mais rápido que o flash'),(7,6,8,'Esse acervo virtual é incrível, entregou o livro antes da data prevista'),(8,7,7,'Recomendo que comprem livros nesse acervo, chegou antes do previsto e em ótimo estado'),(9,8,9,'Agradável e bonito, recomendo que comprem!!!'),(10,9,11,'Excelente livro, recomendo!'),(11,2,10,'Recomendo muito que comprem nesse acervo!'),(12,9,12,'Comprem nesse acervoooooo, ele é ótimo dms!!!'),(13,8,13,'Qualidade dos livros desse acervo são incríveis!'),(14,7,15,'Chegou em perfeito estado!'),(15,6,14,'Recomendo!!!'),(16,5,17,'Demorou pra chegar, mas está em ótimo estado!'),(17,4,16,'Entrega foi muito rápido!!'),(18,3,19,'Esse livro que comprei é incrível'),(19,2,18,'Melhor troca que já fiz na minha vida'),(20,1,20,'Amei essa doação, muito obrigada! Amei esse acervo!!!');
 /*!40000 ALTER TABLE `operacoes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -257,7 +262,7 @@ CREATE TABLE `tipos_operacoes` (
   `c_tipo` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id_tipo_operacoes`),
   UNIQUE KEY `c_tipo_UNIQUE` (`c_tipo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -266,6 +271,7 @@ CREATE TABLE `tipos_operacoes` (
 
 LOCK TABLES `tipos_operacoes` WRITE;
 /*!40000 ALTER TABLE `tipos_operacoes` DISABLE KEYS */;
+INSERT INTO `tipos_operacoes` VALUES (3,'Doação'),(2,'Troca'),(1,'Venda');
 /*!40000 ALTER TABLE `tipos_operacoes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -280,7 +286,7 @@ CREATE TABLE `usuarios` (
   `id_usuarios` int NOT NULL AUTO_INCREMENT,
   `c_nome` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `c_email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `c_senhas` varchar(25) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `c_senhas` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `id_perguntas` int DEFAULT NULL,
   `c_respostaseg` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `c_interesses` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -296,7 +302,7 @@ CREATE TABLE `usuarios` (
   CONSTRAINT `fk_id_cidades` FOREIGN KEY (`id_cidades`) REFERENCES `cidades` (`id`),
   CONSTRAINT `fk_id_pedidos` FOREIGN KEY (`id_pedidos`) REFERENCES `operacoes` (`id_operacoes`),
   CONSTRAINT `fk_id_perguntas` FOREIGN KEY (`id_perguntas`) REFERENCES `perguntas_seg` (`id_perguntas`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -305,6 +311,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (1,'Kieran Downs','consequat@icloud.couk','OMB04VQC6UE',2,'Shirlley','Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar',3191,1,NULL),(2,'Damian Preston','egestas@google.net','TBX52HDK5NF',1,'Cachorro','Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar Ação',1018,2,NULL),(3,'Garth Jackson','facilisis.suspendisse@yahoo.ca','ATW73VWM7VI',2,'Larissa','Romance, Fantasia,',720,3,NULL),(4,'Paki Short','id.risus.quis@aol.couk','YHS27YRF8DM',2,'Francisco','Drama, Romance, Fantasia, Ler, Doar, Vender,',2815,1,NULL),(5,'Juliet Holcomb','vel.venenatis@yahoo.org','WES21BVT0OW',3,'Drácula','Drama, Romance, Fantasia, Ler, +Doar, Vender, Trocar',2931,1,NULL),(6,'Macaulay Brennan','velit.egestas@icloud.org','FGK38MIV4GG',2,'Bruno','Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar Ação',149,2,NULL),(7,'Cally Anderson','cursus.diam@outlook.net','HPR63YIW8EY',1,'Cachorro','Romance, Fantasia, Ler, Doar, Vender, Trocar',4230,3,NULL),(8,'Rafael Santiago','arcu.vestibulum@outlook.org','LQF00TNO2FQ',3,'O menino de Pijama Listrado','Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar Ação',4173,2,NULL),(9,'Hop Crosby','dolor.sit.amet@aol.ca','BQP33CFG2KI',2,'Marcelo','Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar',2994,3,NULL),(10,'Tate Juarez','eu@icloud.edu','VXU93WTY8UA',3,'O lado bom da vida','Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar',196,2,NULL),(11,'Gabriel Robles','quis@hotmail.com','EYT11JOF1XQ',3,'A culpa é das estrelas','Fantasia, Ler, Doar, Vender, Trocar',798,2,NULL),(12,'Forrest Richardson','turpis.egestas@icloud.couk','YRI93BIJ4QQ',2,'Ana','Drama, Romance, Fantasia, Ler,',2137,3,NULL),(13,'Wylie Cote','adipiscing.elit@outlook.com','XIQ84QXP1ZO',2,'Wandemberg','Doar, Vender, Trocar',3653,5,NULL),(14,'Gisela Morton','bibendum@yahoo.org','LUD67VGV9DT',1,'Gato','Fantasia, Ler,',3022,3,NULL),(15,'Audra Valenzuela','feugiat.metus@aol.com','QVR50SBT2CB',2,'Ana','Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar Ação',1168,2,NULL),(16,'Clio Singleton','ipsum@google.com','EEE73UUW2PK',2,'Julia','Fantasia, Ler, Doar, Vender, Trocar',2425,3,NULL),(17,'Kellie Glover','phasellus.dapibus@google.com','SJE76VRF8US',2,'Roberta','Fantasia, Ler, Doar, Vender,',3523,5,NULL),(18,'Aurelia Nichols','et.magnis.dis@hotmail.org','DML67GLW4JF',2,'Maria','Fantasia, Ler, Doar, Vender,',4622,2,NULL),(19,'Renee Lawson','luctus.vulputate@protonmail.couk','SKY37OSC2QS',3,'O mundo da criança','Drama, Romance, Fantasia, Ler, Doar, Vender, Trocar Ação',790,1,NULL),(20,'Colton Burris','et.risus@yahoo.edu','SJZ56KMH6QZ',2,'Marcos','Fantasia, Ler, Doar, Vender,',5416,5,NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -317,4 +324,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-19 19:53:59
+-- Dump completed on 2022-06-20 21:16:58
