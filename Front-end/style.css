@@ -3,6 +3,7 @@
 
 
 
+
 body {
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Padauk:wght@700&display=swap');
     font-family: 'Inter', sans-serif;
@@ -17,7 +18,8 @@ header {
     
 }
 body>header>div{
-    display:flex;width: 100% ;
+    display:flex;
+    width: 100%;
     justify-content: center;
 }
 #NomeLogo {
@@ -36,11 +38,6 @@ body>header>div{
     top: 0px;
     right: 10px;
 }
-
-
-
-
-
 
 
 /* Barra de Navegação*/
@@ -62,6 +59,11 @@ body>header>div{
     float: left;
     overflow: hidden;
   }
+  .menu_suspenso2 {
+    float: left;
+    overflow: hidden;
+  }
+  
   .menu_suspenso .botao_d_naveg {
     font-size: 25px; 
     font-weight: bold;
@@ -75,7 +77,23 @@ body>header>div{
     margin: 0px;
     
   }
+  .menu_suspenso2 .botao_d_naveg2 {
+    font-size: 25px; 
+    font-weight: bold;
+    font-style: italic;
+    border: none;
+    outline: none;
+    color: rgba(0, 0, 0, 1);
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0px;
+    
+  }
   .nav a:hover, .menu_suspenso:hover .botao_d_naveg {
+    color: rgba(255, 255, 255, 1);
+  }
+  .nav a:hover, .menu_suspenso2:hover .botao_d_naveg2 {
     color: rgba(255, 255, 255, 1);
   }
   .menu_suspenso-conteudo {
@@ -106,45 +124,138 @@ body>header>div{
     display: block;
   }
 
-  
 
 
 
 
 
- /* Redefinição de senha, colocando cor e tamanho das letras*/
-  
 
-.container {
-
-    
+  .menu_suspenso-conteudo2 {
+    display: none;
+    position: absolute;
+    background-color: rgba(243, 119, 6, 1);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}  
+  .menu_suspenso-conteudo2 a {
+    float: none;
+    color: rgba(255, 255, 255, 1);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
     text-align: left;
-    color: rgba(204, 204, 204, 1);
-    padding: 200px 0px 200px 50px;
-    font-size: 25px;
+    outline: auto;
+    outline-color: black;
+  }
+  
+  .menu_suspenso-conteudo2 a:hover {
+    background-color: rgba(204, 204, 204, 1);
+    color: rgba(0, 0, 0, 1);
+  }
+  
+  .menu_suspenso2:hover .menu_suspenso-conteudo2 {
+    display: block;
+  }
+
+
+
+
+
+
+
+
+
+main{
+    height: 2000px;
+    margin: 100px 0px;
 }
 
-h2{
-    color: rgba(204, 204, 204, 1);
+.livr{
+    height: 305px;
+    width: 210px;
 }
 
-.requisito {
-
-    text-align:center;
+#Title1 {
+    margin: 30px 10px;
+    padding: 0.6em 1em 0.6em 1em;
+    font-size: 1.5em;
+    font-style: italic;
+    text-align: center;
+    background-color: rgba(204, 204, 204, 1);
+    color: rgba(0, 0, 0, 1);
+    border-radius: 0.5em;
     
-    color: rgb(252, 249, 249);
-    padding: 250px;
-    float:right;
-    font-size: 5mm;
-
 }
 
-.figura {
-    text-align:center;
+#ViewTitle1{
+    display: flex;
+    position: relative;
     
-    color: rgb(12, 11, 11);
-    padding: 0px;
-    float:right;   
+}
+
+
+
+#Title2 {
+    position: relative;
+    top: 30px;
+    margin: 30px 10px;
+    padding: 0.6em 1em 0.6em 1em;
+    font-size: 1.5em;
+    font-style: italic;
+    text-align: center;
+    background-color: rgba(204, 204, 204, 1);
+    color: rgba(0, 0, 0, 1);
+    border-radius: 0.5em;
+    
+}
+
+
+#ViewTitle2{
+    display: flex;
+    position: relative;
+    
+}
+
+    
+
+
+
+    #Title3 {
+        position: relative;
+        top: 30px;
+        margin: 30px 10px;
+        padding: 0.6em 1em 0.6em 1em;
+        font-size: 1.5em;
+        font-style: italic;
+        text-align: center;
+        background-color: rgba(204, 204, 204, 1);
+        color: rgba(0, 0, 0, 1);
+        border-radius: 0.5em;
+        
+    }
+    
+    
+    #ViewTitle3{
+        display: flex;
+        position: relative;
+        
+    }
+       
+
+footer{
+    background-color: rgba(204, 204, 204, 1);
+    color: rgba(0, 0, 0, 1);
+    height: 100px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 25px;
+    font-size:12px
+    line-heigh: 18px;
+    text-align:center;
+    text-size-adjust: auto;
+    vertical-align: baseline;
 }
 
 
@@ -152,3 +263,46 @@ h2{
 
 
 
+
+/* Slider */
+.multi-item-carousel .carousel-inner > .item {
+transition: 500ms ease-in-out left;
+}
+.multi-item-carousel .carousel-inner .active.left {
+left: -33%;
+}
+.multi-item-carousel .carousel-inner .active.right {
+left: 33%;
+}
+.multi-item-carousel .carousel-inner .next {
+left: 33%;
+}
+.multi-item-carousel .carousel-inner .prev {
+left: -33%;
+}
+@media all and (transform-3d), (-webkit-transform-3d) {
+.multi-item-carousel .carousel-inner > .item {
+  transition: 500ms ease-in-out left;
+  transition: 500ms ease-in-out all;
+  -webkit-backface-visibility: visible;
+          backface-visibility: visible;
+  -webkit-transform: none!important;
+          transform: none!important;
+}
+}
+.multi-item-carousel .carouse-control.left,
+.multi-item-carousel .carouse-control.right {
+background-image: none;
+}
+h1 {
+color: white;
+font-size: 2.25em;
+text-align: center;
+margin-top: 1em;
+margin-bottom: 2em;
+text-shadow: 0px 2px 0px #000000;
+}
+.col-xs-4{
+    display: flex;
+    justify-content: center;
+}
