@@ -5,16 +5,18 @@
 
 
 body {
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Padauk:wght@700&display=swap');
-    font-family: 'Inter', sans-serif;
-    background-color: rgba(0, 0, 0, 1);
-    color: rgba(255, 255, 255, 1);
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Sofia&display=swap');
+  font-family: 'Libre Caslon Display', serif;
+  font-family: 'Sofia', cursive;
+  background-color: rgba(0, 0, 0, 1);
+  color: rgba(255, 255, 255, 1);
+  zoom: 75%;
 }
 
 header {
     margin:0px 100px 0px 0px;
     display: flex;
-    height: 400px;
+    height: 250px;
     
 }
 body>header>div{
@@ -23,9 +25,9 @@ body>header>div{
     justify-content: center;
 }
 #NomeLogo {
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Padauk:wght@700&display=swap');
-    font-family: 'Inter', sans-serif;
-    font-size: 190px;
+    @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+    font-family: 'Sofia', cursive;
+    font-size: 100px;
     font-style: italic;
     display:contents;
     margin: 0px 600px;
@@ -44,6 +46,7 @@ body>header>div{
 .nav {
     overflow: hidden;
     background-color: rgba(243, 119, 6, 1);
+    height: 50px;
 }  
   .nav a {
     float:left;
@@ -51,7 +54,7 @@ body>header>div{
     font-style: italic;
     color: rgba(0, 0, 0, 1);
     text-align: center;
-    padding: 14px 156px;
+    padding: 4px 196px;
     text-decoration: none;
     font-weight: bold;
   }
@@ -71,7 +74,7 @@ body>header>div{
     border: none;
     outline: none;
     color: rgba(0, 0, 0, 1);
-    padding: 14px 16px;
+    padding: 4px 16px;
     background-color: inherit;
     font-family: inherit;
     margin: 0px;
@@ -84,7 +87,7 @@ body>header>div{
     border: none;
     outline: none;
     color: rgba(0, 0, 0, 1);
-    padding: 14px 16px;
+    padding: 4px 16px;
     background-color: inherit;
     font-family: inherit;
     margin: 0px;
@@ -123,13 +126,6 @@ body>header>div{
   .menu_suspenso:hover .menu_suspenso-conteudo {
     display: block;
   }
-
-
-
-
-
-
-
   .menu_suspenso-conteudo2 {
     display: none;
     position: absolute;
@@ -170,7 +166,29 @@ main{
     height: 2000px;
     margin: 100px 0px;
 }
-
+.botao{
+  text-decoration: none;
+  color: #000000;
+  background-color: rgba(243, 119, 6, 1);
+  border-radius: 0.8em;
+  padding: 5px 5px;
+  box-sizing: content-box;
+  font-size: 0.8em;
+}
+.comenta{
+  position: absolute; 
+  top: 1100px;
+  left: 50px;
+  font-size: 1.2em;
+}
+.comentarios{
+  background-color: rgba(204, 204, 204, 1);
+  color: #000000;
+  padding: 2px 15px;
+  border-radius: 2em;
+  width: 600px;
+  font-size: 1.2em;
+}
 .livr{
     height: 305px;
     width: 210px;
