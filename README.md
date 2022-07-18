@@ -1,3 +1,25 @@
+
+Pontos levantados na reunião  horário de review (prox reunião: quinta: Obrigatorio importante bora)
+
+1- Transição mais suave de cores. 
+2- padronizar bordas. 
+3- Mistura de traços grossos e finos.
+4. Botar título da página junto da logo
+5. Subtitulo pra logo
+6. Cores tá muito forte
+7. Tamanho das letras estão muito grande
+8 - gradiente a partir do footer preto
+9 - O contrário
+10  OK - TIRA ESSE ITALICO PELAMOR FINALMENTE
+11 OK- colocar categorias de livros como seleções na pag de catálogo
+12 OK - input de busca pro catálogo
+13 OK - escolher pag padrao 
+14 - Vai deixar aquela imagem se usar a sugestão 8 e 9
+
+
+
+
+
 *GRUPO3
 ODS. 4 Educação de Qualidade*
 • Bruno França
