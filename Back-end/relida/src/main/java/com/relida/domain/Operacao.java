@@ -1,5 +1,6 @@
 package com.relida.domain;
 
-public class Usuario {
+public class Operacao {
 
+	
 }

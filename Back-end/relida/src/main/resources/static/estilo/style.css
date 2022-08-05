@@ -1,0 +1,245 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: black;
+    color: #F37706;
+    display: flex;
+    margin: 0;
+}
+
+main{
+    position: relative;
+    justify-content: center;
+}
+
+#fundo{
+    position: absolute;
+    left: 0px;
+    width: 500px;
+    justify-content: center;
+    margin: 0;
+    margin-left: 0px;
+   
+ }
+
+header img{
+    width: 10%;
+    margin-left: 0%;
+}
+
+#titulo{
+    color: black;
+    background-color: #F37706;
+    float: right;
+    width: 75%;
+    margin-top: 4%;
+    padding: 1%;
+}
+header{
+    color: black;
+    min-height: 60px;
+    text-align: center;
+    padding-top: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 25px;}
+
+header img.pequena {
+    width: 10%;
+}
+
+
+
+nav{
+    background-color: #F37706;
+    display: flex;
+    justify-content:flex-end;
+  
+}
+
+nav:after{
+    content: '';
+    clear: both;
+    display: table;
+}
+
+nav ul {
+    float: left;
+    list-style: none;
+    margin-right: 40px;
+    position: relative;
+    
+}
+
+nav ul li {
+    display: inline-block;
+    
+}
+
+
+
+nav ul li a{
+    color: black;
+    text-decoration: none;
+    line-height: 70px;
+    font-size: 18px;
+    padding: 9px 9px;
+    display: block;
+    
+}
+
+
+
+nav ul li a:hover{
+color: blanchedalmond;
+border-radius: 5px;
+display: block;
+}
+
+nav ul ul{
+    position: absolute;
+    top: 90px;
+    opacity: 0;
+    visibility: hidden;
+
+}
+
+nav ul li:hover > ul {
+    opacity: 1;
+    visibility: visible;   
+}
+
+nav ul ul li{
+    position: relative;
+    margin: 0px;
+    width: 150px;
+    float: none;
+    display: list-item;
+    background-color: #F37706;
+}
+
+
+nav ul ul ul li{
+    position:relative;
+    top: -70px;
+    left: 150px;
+}
+
+nav ul ul li a{
+    line-height: 50px;
+}
+
+    
+#subtitulo{
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align:right;
+    margin-right: 7%;
+}
+
+
+fieldset{
+    border-radius: 15px;
+    margin: 5px;
+    height: 100%;
+    
+}
+
+form{
+    background-color: #F37706;
+    border-radius: 15px;
+    width: 40%;
+    height: 70%;
+    margin-left: 30%;
+    margin-top: 5%;
+    display: block;
+    align-items: center;
+
+}
+
+div{
+   margin-left: 2%;
+   margin-right: 2%; 
+}
+
+textarea{
+    width: 26em;
+    border-radius: 5px;
+}
+
+input, select, button{
+    border-radius:5px;
+    cursor: pointer;
+}
+
+
+label{
+    line-height: 2em;
+}
+
+#valorlivro{
+    width: 90px;
+
+}
+
+#ttulo{
+    width: 70%;
+}
+
+#autor{
+    width: 36%;
+}
+
+#ano{
+    width: 10%;
+}
+
+#categoria{
+    width: 16%;
+}
+
+#outros{
+    width: 20%;
+}
+
+button{
+    margin-bottom: 15px;
+    margin-left: 25px;
+    padding: 5px 5px;
+    color: white;
+    background-color: black;
+    
+}
+
+ 
+footer{
+    background-color: #e1e1de;
+    display: flex;
+    width: 100%;
+    margin:0;
+    bottom: 0;
+    margin-top: 50%;
+    display: flex;
+    
+}
+
+#fundo{
+    position: absolute;
+    margin:0px;
+    padding:0px;
+    width: 100%;
+    background-color: #e1e1de;
+}
+
+#rodape{
+    color: black;
+    position: relative;
+    margin : 20px;
+    margin-left: 50px;
+    text-align: center;
+
+
+}
