@@ -108,24 +108,5 @@ h3{
     
     
 }
-.quem-somos{
-    border: none;
-    background-color: transparent;
-}
-
-.quem-somos:hover{
-    border: solid 2px black;
-    padding: 0px 10px;
-}
-
-.quem-somos-link{
-    text-decoration: none;
-    color: black;
-}
-
-.quem-somos-link:hover{
-    text-decoration: none;
-    color: white;
-}
 
 
