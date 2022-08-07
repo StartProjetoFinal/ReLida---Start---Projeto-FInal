@@ -2,6 +2,7 @@ package com.relida.domain;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,27 +11,23 @@ import javax.persistence.Id;
 @Entity
 public class CategoriaLivro {
 	
-	//Construtores
-	protected CategoriaLivro() {}
-	protected CategoriaLivro(String categoria) {
-		this.categoria = categoria;
-	}
-	
-	
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 	
+	@Column(length=15)
 	private String categoria;
+	
+	//Construtores
+		public CategoriaLivro() {}
+		public CategoriaLivro(String categoria) {
+			this.categoria = categoria;
+		}
 
 	//Getters e Setters
-	public Long getId() {
+	public Integer getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getCategoria() {
@@ -63,11 +60,5 @@ public class CategoriaLivro {
 		CategoriaLivro other = (CategoriaLivro) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
-	
-	
-	
-	
 	
 }
