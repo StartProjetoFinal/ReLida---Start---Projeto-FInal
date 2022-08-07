@@ -1,50 +1,47 @@
-package com.relida.domain;
+package com.relida.model;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class PerguntaDeSeguranca {
-	
-	//Construtores
-	protected PerguntaDeSeguranca() {}
-	protected PerguntaDeSeguranca(String categoria) {
-		this.pergunta = categoria;
-	}
-	
+public class CategoriaLivro {
 	
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 	
-	private String pergunta;
+	@Column(length=15)
+	private String categoria;
+	
+	//Construtores
+		public CategoriaLivro() {}
+		public CategoriaLivro(String categoria) {
+			this.categoria = categoria;
+		}
 
 	//Getters e Setters
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getCategoria() {
-		return pergunta;
+		return categoria;
 	}
 
 	public void setCategoria(String categoria) {
-		this.pergunta = categoria;
+		this.categoria = categoria;
 	}
 
 	
 	@Override
 	public String toString() {
-		return "pergunta [categoria=" + pergunta + "]";
+		return "CategoriaLivro [categoria=" + categoria + "]";
 	}
 
 	@Override
@@ -60,14 +57,8 @@ public class PerguntaDeSeguranca {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PerguntaDeSeguranca other = (PerguntaDeSeguranca) obj;
+		CategoriaLivro other = (CategoriaLivro) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
-	
-	
-	
-	
 	
 }

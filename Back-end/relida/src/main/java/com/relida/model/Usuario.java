@@ -1,4 +1,4 @@
-package com.relida.domain;
+package com.relida.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

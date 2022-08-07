@@ -1,4 +1,4 @@
-package com.relida.domain;
+package com.relida.model;
 
 import java.util.Objects;
 

@@ -3,15 +3,15 @@ package com.relida.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+@Controller
 public class SegurancaController {
 
-	@Controller
-	public class SegurancaController {
-		
-		@GetMapping("/redefinicao_senha")
-		public String exibirTelaCadastrarLivro() {
-			return "redefinicao_senha";
-		}
-	
+	@GetMapping("/redefinicao")
+	public String exibirTelaCadastrarLivro() {
+		return "redefincao_senha";
+	}
+
+	@GetMapping("redefinicao/mostra_pergunta")
+	public String GetPergunta()
 	
 }

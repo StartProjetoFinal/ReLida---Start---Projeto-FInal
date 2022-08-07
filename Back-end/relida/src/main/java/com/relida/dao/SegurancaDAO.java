@@ -1,14 +1,13 @@
 package com.relida.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import com.relida.domain.PerguntaDeSeguranca;
+import com.relida.model.PerguntaDeSeguranca;
 
-public interface SegurancaDAO {
-
-	public interface AnuncioDAO extends JpaRepository<PerguntaDeSeguranca, Integer> {
-		
-	}
-
+@Repository
+public interface SegurancaDAO extends JpaRepository<PerguntaDeSeguranca, Integer> {
 	
-}
+	String findByname (String nome);
+	
+	}
