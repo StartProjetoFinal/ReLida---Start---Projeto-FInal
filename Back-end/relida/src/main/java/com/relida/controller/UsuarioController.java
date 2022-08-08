@@ -22,7 +22,7 @@ public class UsuarioController {
 	@GetMapping("/cadastro_ok") //Falta verificar a repetição de senha e coletar input da pergunta de segurança
 	public String CadastrarUsuario(Usuario usuario) {
 		this.usuarioDAO.save(usuario);
-		return "index" ;
+		return "login" ;
 	}
 	
 	

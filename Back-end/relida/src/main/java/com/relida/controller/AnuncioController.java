@@ -10,5 +10,36 @@ public class AnuncioController {
 	public String exibirTelaCadastrarLivro() {
 		return "cadastrar_livro";
 	}
+		
+	@GetMapping("/anuncio_um")
+	public String exibirTelaAnuncio() {
+		return "anuncio_um";
+	}
+	
+	@GetMapping("/meus_pedidos")
+	public String exibirMP() {
+		return "meus_pedidos";
+	}
+	
+	@GetMapping("/carrinho")
+	public String exibirC() {
+		return "carrinho";
+	}
+	
+	@GetMapping("/pagamento")
+	public String exibirPM() {
+		return "pagamento";
+	}
+	@GetMapping("/fale_conosco")
+	public String exibirFC() {
+		return "fale_conosco";
+	}
+		
+	@GetMapping("/quem_somos")
+	public String exibirQS() {
+		return "quem_somos";
+	}
+	
+
 
 }

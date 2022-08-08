@@ -24,8 +24,11 @@ public class AcessoController {
 	
 	@RequestMapping("/login")
 	public String exibirTelaLogin(String mensagem) {
-		mensagem = null; // Apaga mensagem após atualização da página.
 		return"login";
+	}
+	@RequestMapping("/login_error")
+	public String exibirTelaLoginError(String mensagem) {
+		return"error_login";
 	}
 	
 	@RequestMapping("/login_ok")
@@ -36,7 +39,7 @@ public class AcessoController {
 			return"index";
 		}else {
 			ra.addFlashAttribute("mensagem","Dados Inválidos, tente novamente.");
-			return"redirect:/login";
+			return"redirect:/login_error";
 			
 		}
 	}
