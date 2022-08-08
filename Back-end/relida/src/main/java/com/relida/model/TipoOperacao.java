@@ -11,6 +11,16 @@ import javax.persistence.Id;
 @Entity
 public class TipoOperacao {
 	
+	//Construtores
+	public TipoOperacao(String tipo) {
+			this.tipo = tipo;
+	}	
+	public TipoOperacao() {
+			super();
+		}
+	
+	
+	
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,13 +29,8 @@ public class TipoOperacao {
 	@Column(length=10)
 	private String tipo;
 		
-	
-	//Construtores
-		public TipoOperacao(String tipo) {
-			this.tipo = tipo;
-		}
 
-		
+
 	//Métodos
 	public Integer getId() {
 		return id;

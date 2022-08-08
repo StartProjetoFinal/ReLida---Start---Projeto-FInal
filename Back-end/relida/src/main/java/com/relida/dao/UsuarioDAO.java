@@ -7,7 +7,8 @@ import com.relida.model.Usuario;
 
 @Repository
 public interface UsuarioDAO extends JpaRepository<Usuario, Integer> {
-		String findByname(String nome);
-		String findByEmail(String email);
-		Usuario findByEmailAndSenha(String email, String senha);
+
+	Usuario findByEmailAndSenha(String email, String senha);
+//		String findByNome(String nome);
+	Usuario findByEmail(String email);
 }

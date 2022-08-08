@@ -15,6 +15,48 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 public class Anuncio {
 	
+	//Construtores
+		public Anuncio() {
+			super();
+		}
+		
+		public Anuncio(Usuario anunciante, TipoOperacao tipo_operacao, CategoriaLivro categoria, double valor,
+				String titulo, String autor, LocalDate data_edicao, String outros, String cidade, Estado estado, Long cep,
+				String foto_diretorio, String comentario) {
+			super();
+			this.anunciante = anunciante;
+			this.tipo_operacao = tipo_operacao;
+			this.categoria = categoria;
+			this.valor = valor;
+			this.titulo = titulo;
+			this.autor = autor;
+			this.data_edicao = data_edicao;
+			this.outros = outros;
+			this.cidade = cidade;
+			this.estado = estado;
+			this.cep = cep;
+			this.foto_diretorio = foto_diretorio;
+			this.comentario = comentario;
+		}
+		//Construtor com campos não obrigatórios:
+		public Anuncio(Integer id, Usuario anunciante, TipoOperacao tipo_operacao, CategoriaLivro categoria, double valor,
+				String titulo, String cidade, Estado estado, Long cep, String foto_diretorio) {
+			super();
+			this.id = id;
+			this.anunciante = anunciante;
+			this.tipo_operacao = tipo_operacao;
+			this.categoria = categoria;
+			this.valor = valor;
+			this.titulo = titulo;
+			this.cidade = cidade;
+			this.estado = estado;
+			this.cep = cep;
+			this.foto_diretorio = foto_diretorio;
+		}
+
+		
+		
+	
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -57,6 +99,7 @@ public class Anuncio {
 	
 	@Column(length=500)
 	private String comentario;
+	
 	
 	
 	//Métodos

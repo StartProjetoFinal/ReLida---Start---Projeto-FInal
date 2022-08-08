@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlsn:th="http://www.thymeleaf.org">
   <head>
     <!-- Meta tags Obrigatórias -->
     <meta charset="utf-8">
@@ -76,7 +76,8 @@
             
         </div>
     </nav>
-
+<h1>Settings</h1>
+<div class="alert alert-danger" role="alert" th:text="${mensagem}" th:if="${mensagem}"></div>
     <!-- Formulario Login -->
     <div class="container col-11">
       <div class="row">
@@ -84,12 +85,12 @@
           <img class="img-fluid w-28" id="img-login" src="imagens/LL._logos-removebg-preview.png" alt="">
           <form class="col-8" action="/login_ok">
               <div class="form-group">
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu email">
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu email">
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha">
+                <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha">
               </div>
-              <button type="submit" class="btn btn-primary col-4" formaction="/redefinicao/mostra_pergunta">Redefinir senha</button>
+              <button type="submit" class="btn btn-primary col-4" formaction="/redefinicao/mostra_pergunta">Esqueceu a senha?</button>
               <br>
               
               <div class="form-group form-check">

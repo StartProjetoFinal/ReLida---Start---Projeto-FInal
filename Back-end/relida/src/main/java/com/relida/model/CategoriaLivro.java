@@ -10,6 +10,14 @@ import javax.persistence.Id;
 
 @Entity
 public class CategoriaLivro {
+
+	//Construtores
+	public CategoriaLivro() {}
+	public CategoriaLivro(String categoria) {
+		this.categoria = categoria;
+	}
+	
+	
 	
 	//Atributos
 	@Id
@@ -19,11 +27,7 @@ public class CategoriaLivro {
 	@Column(length=15)
 	private String categoria;
 	
-	//Construtores
-		public CategoriaLivro() {}
-		public CategoriaLivro(String categoria) {
-			this.categoria = categoria;
-		}
+	
 
 	//Getters e Setters
 	public Integer getId() {

@@ -24,7 +24,8 @@ public class PerguntaDeSeguranca {
 	
 	private String pergunta;
 
-	//Getters e Setters
+	
+	//Métodos
 	public Long getId() {
 		return id;
 	}
@@ -32,21 +33,21 @@ public class PerguntaDeSeguranca {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public String getCategoria() {
+	
+	public String getPergunta() {
 		return pergunta;
 	}
-
-	public void setCategoria(String categoria) {
-		this.pergunta = categoria;
+	public void setPergunta(String pergunta) {
+		this.pergunta = pergunta;
 	}
-
+	
 	
 	@Override
 	public String toString() {
 		return "pergunta [categoria=" + pergunta + "]";
 	}
 
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -63,11 +64,6 @@ public class PerguntaDeSeguranca {
 		PerguntaDeSeguranca other = (PerguntaDeSeguranca) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
-	
-	
-	
-	
+
 	
 }

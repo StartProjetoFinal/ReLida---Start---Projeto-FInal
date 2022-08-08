@@ -83,21 +83,21 @@
         <div class="col mt-5">
           <h1 class="text-center">Crie sua conta</h1>
           <h6 class="text-center">Já possui conta?</h6>
-          <a class="btn btn-outline-dark" style="margin-left:35%; padding: 5px 60px" href="login.html" role="button">Entrar</a>
-          <form>
+          <a class="btn btn-outline-dark" style="margin-left:35%; padding: 5px 60px" href="/login" role="button">Entrar</a>
+          <form action="/cadastro_ok">
             <div class="form-group">
               <label for="name">Nome</label>
-              <input type="text" class="form-control"name="name"  placeholder="Digite seu nome" required>
+              <input type="text" class="form-control" name="nome"  placeholder="Digite seu nome" required>
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">Endereço de email</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nome@exemplo.com" required>
+              <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="nome@exemplo.com" required>
             </div>
             <div class="form-inline">
               <label for="inputPassword" class="">Senha</label>
-              <input type="password" class="form-control mx-sm-3 mb-2" id="inputPassword" placeholder="Digite sua senha" required>
+              <input type="password"  class="form-control mx-sm-3 mb-2" id="inputPassword" placeholder="Digite sua senha" required>
               <br>
-              <input type="password" class="form-control mx-sm-3 mb-2" id="inputPassword" placeholder="Confirme sua senha" required>
+              <input type="password" name="senha" class="form-control mx-sm-3 mb-2" id="inputPassword" placeholder="Confirme sua senha" required>
             </div>
             <label for="">Selecione sua pergunta de segurança</label>
             <div class="form-check">
@@ -119,7 +119,7 @@
               </label>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control"name="name"  placeholder="Digite sua resposta" required>
+              <input type="text" class="form-control" name="resposta_seg"  placeholder="Digite sua resposta" required>
             </div>
             <input class="btn btn-secondary btn-block" style="background-color: #f37706;" type="submit"  >
           </input>
@@ -154,7 +154,7 @@
     
     
 
-  <!-- JavaScript (Opcional) -->
+  <!-- JavaScript -->
   <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

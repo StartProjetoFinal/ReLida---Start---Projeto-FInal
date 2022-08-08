@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlsn:th="http://www.thymeleaf.org">
   <head>
     <!-- Meta tags Obrigatórias -->
     <meta charset="utf-8">
@@ -89,7 +89,7 @@
                     <h5 class="form-group ">Responda a pergunta de segurança cadastrada para redefinir sua senha<h5>
                     </div>
                     <div class="form-group">
-                        <label for="respostaSeguranca"><strong>Qual seu livro favorito?</strong></label>
+                        <label for="respostaSeguranca"><strong ><div th:text="${usuario}"></div></strong></label>
                         <input type="text" class="form-control" id="respostaSeguranca"  placeholder="Digite a resposta">
                       </div>
                       <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
