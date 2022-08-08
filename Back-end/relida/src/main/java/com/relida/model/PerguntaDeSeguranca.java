@@ -15,7 +15,7 @@ public class PerguntaDeSeguranca {
 	protected PerguntaDeSeguranca(String categoria) {
 		this.pergunta = categoria;
 	}
-	
+
 	
 	//Atributos
 	@Id

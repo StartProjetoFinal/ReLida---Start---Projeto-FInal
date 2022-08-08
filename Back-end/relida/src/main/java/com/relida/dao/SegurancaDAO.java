@@ -8,6 +8,6 @@ import com.relida.model.PerguntaDeSeguranca;
 @Repository
 public interface SegurancaDAO extends JpaRepository<PerguntaDeSeguranca, Integer> {
 	
-	String findByname (String nome);
+	String findByname (String pergunta);
 	
 	}

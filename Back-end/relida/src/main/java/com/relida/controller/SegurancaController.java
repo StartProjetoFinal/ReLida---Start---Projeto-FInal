@@ -11,7 +11,7 @@ public class SegurancaController {
 		return "redefincao_senha";
 	}
 
-	@GetMapping("redefinicao/mostra_pergunta")
-	public String GetPergunta()
+//	@GetMapping("redefinicao/mostra_pergunta")
+//	public String GetPergunta()
 	
 }
