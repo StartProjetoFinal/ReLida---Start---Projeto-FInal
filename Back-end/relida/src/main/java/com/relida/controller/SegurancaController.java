@@ -20,18 +20,17 @@ public class SegurancaController {
 	private UsuarioDAO usuarioDAO;
 
 	@GetMapping("/redefinicao")
-	public String exibirTelaCadastrarLivro() {
-		return "redefincao_senha";
+	public String exibirTelaRedefinicao() {
+		return "redefinicao_senha";
 	}
 
 	@RequestMapping("redefinicao/mostra_pergunta")
-	public String AbrirRedefinicao(Usuario usuario, RedirectAttributes ra, HttpSession session) {
+	public String AbrirRedefinicaoOuNao(Usuario usuario, RedirectAttributes ra, HttpSession session) {
 		usuario = this.usuarioDAO.findByEmail(usuario.getEmail());
-		
 		if (usuario != null && usuario.getEmail()!=null && usuario.getEmail() != "") { //Testar
-			Usuario user = usuarioDAO.findByEmail(usuario.getEmail()); // Isso não está coletando a linha do usuário
+			Usuario user = usuarioDAO.findByEmail(usuario.getEmail()); // Isso não está coletando a linha do usuário na tabela
 			usuario = user;
-			return"redefinicao_senha";
+			return"redirect:/redefinicao";
 		} else {
 			ra.addFlashAttribute("mensagem","Você precisa preencher um email válido e não vazio para acessar a redefinição de senha");
 			return"redirect:/login";	
