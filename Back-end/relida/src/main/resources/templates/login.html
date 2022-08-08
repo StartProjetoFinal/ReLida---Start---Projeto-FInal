@@ -76,57 +76,59 @@
             
         </div>
     </nav>
-<h1>Settings</h1>
-<div class="alert alert-danger" role="alert" th:text="${mensagem}" th:if="${mensagem}"></div>
     <!-- Formulario Login -->
     <div class="container col-11">
       <div class="row">
-        <div class="col-6">
+        <div class="col-5">
           <img class="img-fluid w-28" id="img-login" src="imagens/LL._logos-removebg-preview.png" alt="">
-          <form class="col-8" action="/login_ok">
-              <div class="form-group">
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu email">
-              </div>
-              <div class="form-group">
-                <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha">
-              </div>
-              <button type="submit" class="btn btn-primary col-4" formaction="/redefinicao/mostra_pergunta">Esqueceu a senha?</button>
-              <br>
-              
-              <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Salvar informações</label>
-              </div>
-              <button type="submit" class="btn btn-primary col-4">Entrar</button>     
-            </form>
         </div>
-      
          <!-- Conectar com redes sociais -->
-        <div class="col">
-          <br>
-          <br>
-          <br>
-          <h2 class="text-sm-left">Conecte-se com sua Rede Social</h2>
-          <br>
-            <div class="btn-rede">
-            <button>
-            <a href="https://www.facebook.com">
-                <img class="img-fluid" src="imagens/facebook.png" alt="">
-            </a>
-            </button>
+        <div class="col-7"> 
+          <form class="col-8 mt-5 p-4 mt-5 bg-light text-dark" style="border-radius:15px;" action="/login_ok">
+            <h2 class="text-center mb-5">Acesse Sua conta</h2>
+            <div class="form-group">
+              <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu email">
             </div>
+            <div class="form-group">
+              <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha">
+            </div>
+            <button type="submit" class="btn btn-outline-dark mb-2" formaction="/redefinicao/mostra_pergunta">Esqueceu a senha?</button>
             <br>
-            <div class="btn-rede">
-                <button>
-                    <a href="https://mail.google.com">
-                        <img class="img-fluid" src="imagens/google.png" alt="">
-                    </a>
-                    </button>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Salvar informações</label>
+            </div>
+            <button type="submit" class="btn btn-secondary btn-block" style="background-color: #f37706;">Entrar</button>     
+          </form>
+          <div class="row">
+            <div class="col-7 btn-rede text-center ">
+              <h2 class="text-center">Conecte-se com sua Rede Social</h2>
+            </div>
+          </div>
+            <div class="row">
+              <div class="col-2  " style="margin-left:20% ;">
+                <button class="btn btn-outline-secondary btn-sm float-left ml-0 mr-0 pf-0 pr-0 " style="border:black">
+                <a href="https://www.facebook.com">
+                    <img class="img-fluid" src="imagens/facebook-free-icon-font.png" alt="">
+                </a>
+                </button>
                 </div>
                 <br>
-                <h4 class="mt-3">Ainda não é cadastrado? <a href="cadastro_usuario.html">Cadastre-se</a>
-
-                </h4>
+                <div class="col-2 ">
+                    <button class="btn btn-outline-secondary btn-sm ml-0 mr-0 pf-0 pr-0" style="border:transparent">
+                        <a href="https://mail.google.com">
+                            <img class="img-fluid" src="imagens/google-free-icon-font.png" alt="">
+                        </a>
+                        </button>
+                    </div>
+            
+          </div>
+            <div class="row ">
+              <div class="col-7 text-center ml-5 "> <h4 class="mt-3 bg-light text-dark">Ainda não é cadastrado? <a href="cadastro_usuario.html">Cadastre-se</a>
+              </h4>
+            </div>
+            </div>
+               
             </div>
 
 
