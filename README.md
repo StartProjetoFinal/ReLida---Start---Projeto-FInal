@@ -7,6 +7,10 @@ Listas de coisas que não estão funcionando no back:
 
 3. Colocar como NotNull nos atributos obrigatórios das tabelas dos cadastros.
 
+4. Verificar qual usuario ta logado quando estiver na pagina de cadastrar livros.
+
+5.
+
 
 
 
