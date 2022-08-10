@@ -3,8 +3,6 @@ package com.relida.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-
 import com.relida.dao.UsuarioDAO;
 import com.relida.model.Usuario;
 
@@ -14,7 +12,7 @@ public class UsuarioController {
 	@Autowired 
 	private UsuarioDAO usuarioDAO;
 		
-	@GetMapping("/cadastro")
+	@GetMapping("/cadastro_usuario")
 	public String exibirTelaCadastro() {
 		return "cadastro_usuario";
 	}
@@ -25,6 +23,15 @@ public class UsuarioController {
 		return "login" ;
 	}
 	
+	@GetMapping("/meu_perfil")
+	public String exibirMeuPerfil() {
+		return "meu_perfil";
+	}
+	
+	@GetMapping("/meus_pedidos")
+	public String exibirTelaMeusPedidos() {
+		return "meus_pedidos";
+	}
 	
 	
 	

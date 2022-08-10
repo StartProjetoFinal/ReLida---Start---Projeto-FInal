@@ -26,9 +26,24 @@ public class AcessoController {
 	public String exibirTelaLogin(String mensagem) {
 		return"login";
 	}
-	@RequestMapping("/login_error")
+	@RequestMapping("/error_login")
 	public String exibirTelaLoginError(String mensagem) {
 		return"error_login";
+	}
+
+	@RequestMapping("/fale_conosco")
+	public String exibirTelaFaleConosco(String mensagem) {
+		return"fale_conosco";
+	}
+
+	@GetMapping("/quem_somos")
+	public String exibirQuemSomos() {
+		return "quem_somos";
+	}
+
+	@GetMapping("/privacidade")
+	public String exibirPrivacidade() {
+		return "privacidade";
 	}
 	
 	@RequestMapping("/login_ok")

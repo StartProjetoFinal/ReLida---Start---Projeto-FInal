@@ -16,28 +16,18 @@ public class AnuncioController {
 		return "anuncio_um";
 	}
 	
-	@GetMapping("/meus_pedidos")
-	public String exibirMP() {
-		return "meus_pedidos";
-	}
-	
 	@GetMapping("/carrinho")
 	public String exibirC() {
 		return "carrinho";
 	}
 	
 	@GetMapping("/pagamento")
-	public String exibirPM() {
+	public String exibirPagamento() {
 		return "pagamento";
 	}
 	@GetMapping("/fale_conosco")
-	public String exibirFC() {
+	public String exibirFaleConosco() {
 		return "fale_conosco";
-	}
-		
-	@GetMapping("/quem_somos")
-	public String exibirQS() {
-		return "quem_somos";
 	}
 	
 
