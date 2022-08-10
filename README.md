@@ -13,7 +13,7 @@ retornando as informações do usuário.
 
 
 
-Pontos levantados na reunião  horário de review (prox reunião: quinta: Obrigatorio importante bora)
+Pontos levantados na reunião  horário de review
 
 1- Transição mais suave de cores. 
 2- padronizar bordas. 
