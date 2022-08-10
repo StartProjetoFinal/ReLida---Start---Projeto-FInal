@@ -1,10 +1,11 @@
 
 Listas de coisas que não estão funcionando no back:
 
-1. Após digitar o email na tela de login e clicar em redefinir senha, na tela de redefinir senha, mostrar pergunta associada aquele email. Fazendo a busca no banco, não está
-retornando as informações do usuário.
+1. Após digitar o email na tela de login e clicar em redefinir senha, na tela de redefinir senha, mostrar pergunta associada aquele email. Fazendo a busca no banco, não está retornando as informações do usuário;
 
 2. Adicionar verificação de requisitos para o cadastro da senha do usuário?
+
+3. Colocar como NotNull nos atributos obrigatórios das tabelas dos cadastros.
 
 
 
