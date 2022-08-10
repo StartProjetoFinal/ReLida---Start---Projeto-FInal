@@ -17,7 +17,7 @@ public class AcessoController {
 	@Autowired
 	private UsuarioDAO usuarioDAO;
 	
-	@GetMapping("/")
+	@GetMapping("/index")
 	public String exibirTelaInicial() {
 		return"index";
 	}
@@ -48,13 +48,13 @@ public class AcessoController {
 	
 	@RequestMapping("/login_ok")
 	public String efetuarLogin(Usuario usuario, RedirectAttributes ra, HttpSession session) {
-		usuario = this.usuarioDAO.findByEmailAndSenha(usuario.getEmail(), usuario.getSenha());
-		if (usuario != null) {
+		Usuario usuarioo = this.usuarioDAO.findByEmailAndSenha(usuario.getEmail(), usuario.getSenha());
+		if (usuarioo != null) {
 			session.setAttribute("UsuarioLogado", usuario);
 			return"index";
 		}else {
 			ra.addFlashAttribute("mensagem","Dados Inválidos, tente novamente.");
-			return"redirect:/login_error";
+			return"redirect:/error_login";
 			
 		}
 	}

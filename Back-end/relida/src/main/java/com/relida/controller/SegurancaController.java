@@ -24,16 +24,15 @@ public class SegurancaController {
 
 	@RequestMapping("redefinicao/mostra_pergunta")
 	public String AbrirRedefinicaoOuNao(Usuario usuario, RedirectAttributes ra, HttpSession session) {
-		usuario = this.usuarioDAO.findByEmail(usuario.getEmail());
-		if (usuario != null && usuario.getEmail()!=null && usuario.getEmail() != "") { //Testar
-			Usuario user = usuarioDAO.findByEmail(usuario.getEmail()); // Isso não está coletando a linha do usuário na tabela
-			usuario = user;
-			return"redirect:/redefinicao";
+		Usuario usuarioo = this.usuarioDAO.findByEmail(usuario.getEmail());
+		if (usuarioo!=null) {
+			return"redirect:/redefinicao_senha";
 		} else {
 			ra.addFlashAttribute("mensagem","Você precisa preencher um email válido e não vazio para acessar a redefinição de senha");
 			return"redirect:/login";	
 		}
 	}
+	
 
 	
 	

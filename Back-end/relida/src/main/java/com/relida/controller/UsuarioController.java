@@ -8,20 +8,15 @@ import com.relida.model.Usuario;
 
 @Controller
 public class UsuarioController {
-	
-	@Autowired 
-	private UsuarioDAO usuarioDAO;
 		
+	@Autowired
+	private UsuarioDAO usuarioDAO;
+	
 	@GetMapping("/cadastro_usuario")
 	public String exibirTelaCadastro() {
 		return "cadastro_usuario";
 	}
 	
-	@GetMapping("/cadastro_ok") //Falta verificar a repetição de senha e coletar input da pergunta de segurança
-	public String CadastrarUsuario(Usuario usuario) {
-		this.usuarioDAO.save(usuario);
-		return "login" ;
-	}
 	
 	@GetMapping("/meu_perfil")
 	public String exibirMeuPerfil() {
@@ -34,5 +29,30 @@ public class UsuarioController {
 	}
 	
 	
+	@GetMapping("/cadastro_ok")
+	public String CadastrarUsuario(Usuario usuario, String senha2, String exampleRadios) {
+		
+		//Coletando pergunta:
+		usuario.setPergunta_seg(exampleRadios);
+		if (usuario.getPergunta_seg().equals("opcao1")) {usuario.setPergunta_seg("Animal favorito?");}
+		if (usuario.getPergunta_seg().equals("opcao2")) {usuario.setPergunta_seg("Melhor amigo de infância?");}
+		if (usuario.getPergunta_seg().equals("option3")) {usuario.setPergunta_seg("Livro favorito?");}
+		
+		//Validação de senha e de existência de cadastro:
+		Usuario usuarioo = usuarioDAO.findByEmail(usuario.getEmail());
+		if (usuarioo==null && usuario.getSenha().equals(senha2)) {
+			this.usuarioDAO.save(usuario);
+			return "index";
+			}
+		else if (usuarioo != null && usuario.getSenha().equals(senha2)) {
+			usuario.setNome("Esse email já está cadastrado. Tente novamente!");
+			return "error_cadastro_usuario";
+			}
+		else {
+			usuario.setNome("Senhas diferentes. Tente novamente!");
+			return "error_cadastro_usuario";
+		}
+	}
 	
+
 }
