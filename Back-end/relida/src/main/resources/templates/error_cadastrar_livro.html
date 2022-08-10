@@ -198,6 +198,12 @@
               <div class="form-goup text-center">
                 <a class="btn  pl-5 pr-5" style="background-color:#f37706;color: black;" href="/index" role="button">Voltar</a>
                 <input formaction="/cadastro_livro_verificacao" class="btn pl-5 pr-5" style="background-color:#f37706;" type="submit" value="Cadastrar">
+              </div>
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong><div th:text="${anuncio.getAutor()}"></div></strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div> 
             </form>
           </div>

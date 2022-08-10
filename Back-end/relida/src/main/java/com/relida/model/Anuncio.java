@@ -53,10 +53,22 @@ public class Anuncio {
 			this.cep = cep;
 			this.foto_diretorio = foto_diretorio;
 		}
-
-		
 		
 	
+	public Anuncio(double valor, String titulo, String autor, String outros, String cidade) {
+			super();
+			this.valor = valor;
+			this.titulo = titulo;
+			this.autor = autor;
+			this.outros = outros;
+			this.cidade = cidade;
+		}
+
+
+
+
+
+
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -79,7 +91,7 @@ public class Anuncio {
 	@Column(length=100)
 	private String autor;
 	
-	@DateTimeFormat(style = "yyyy-MM-dd")
+	@DateTimeFormat(style = "yyyy-MM-dd") //Verificar atributo name em cadastrar_livro >form>input
 	private LocalDate data_edicao;
 	
 	@Column(length=50)
@@ -91,11 +103,11 @@ public class Anuncio {
 	@ManyToOne
 	private Estado estado;
 	
-	@Column(length=8)
+	@Column(length=8) //Ver no html
 	private Long cep;
 	
 	@Column(length=100)
-	private String foto_diretorio;
+	private String foto_diretorio;  // Ver como salvar foto no static e só pegar a string do diretório
 	
 	@Column(length=500)
 	private String comentario;
