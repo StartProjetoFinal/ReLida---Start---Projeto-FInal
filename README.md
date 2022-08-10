@@ -1,8 +1,6 @@
 
 Listas de coisas que não estão funcionando no back:
 
-1. No cadastro, selecionar opção de pergunta e mandar pro banco. Existem três tags diferentes que pode ser mandada ou não para o banco. Ideias: usar Javascript no front, ou retornar os tres valores e decidir numa condição em java.
-
 2. Após digitar o email na tela de login e clicar em redefinir senha, na tela de redefinir senha, mostrar pergunta associada aquele email. Fazendo a busca no banco, não está
 retornando as informações do usuário.
 
