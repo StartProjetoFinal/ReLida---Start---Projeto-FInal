@@ -9,7 +9,7 @@ Listas de coisas que não estão funcionando no back:
 
 4. Verificar qual usuario ta logado quando estiver na pagina de cadastrar livros.
 
-5.
+5. Colocar nome nav dps que logar.
 
 
 
