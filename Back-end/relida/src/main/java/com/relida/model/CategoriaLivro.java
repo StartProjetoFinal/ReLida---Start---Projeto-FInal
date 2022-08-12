@@ -11,14 +11,6 @@ import javax.persistence.Id;
 @Entity
 public class CategoriaLivro {
 
-	//Construtores
-	public CategoriaLivro() {}
-	public CategoriaLivro(String categoria) {
-		this.categoria = categoria;
-	}
-	
-	
-	
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,8 +20,16 @@ public class CategoriaLivro {
 	private String categoria;
 	
 	
+	
+	//Construtores
+	public CategoriaLivro() {}
+	public CategoriaLivro(String categoria) {
+		this.categoria = categoria;
+	}
+	
+	
 
-	//Getters e Setters
+	//Métodos
 	public Integer getId() {
 		return id;
 	}

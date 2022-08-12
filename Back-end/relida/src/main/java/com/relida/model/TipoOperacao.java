@@ -11,16 +11,6 @@ import javax.persistence.Id;
 @Entity
 public class TipoOperacao {
 	
-	//Construtores
-	public TipoOperacao(String tipo) {
-			this.tipo = tipo;
-	}	
-	public TipoOperacao() {
-			super();
-		}
-	
-	
-	
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,6 +20,16 @@ public class TipoOperacao {
 	private String tipo;
 		
 
+	
+	//Construtores
+	public TipoOperacao(String tipo) {
+			this.tipo = tipo;
+	}	
+	public TipoOperacao() {
+			super();
+		}
+	
+	
 
 	//Métodos
 	public Integer getId() {
@@ -44,9 +44,8 @@ public class TipoOperacao {
 	@Override
 	public String toString() {
 		return "TipoOperacao [id=" + id + ", tipo=" + tipo + "]";
-	}
-
-
+	}	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, tipo);

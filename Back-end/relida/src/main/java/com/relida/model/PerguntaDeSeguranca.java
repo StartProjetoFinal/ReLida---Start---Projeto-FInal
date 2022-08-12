@@ -10,13 +10,6 @@ import javax.persistence.Id;
 @Entity
 public class PerguntaDeSeguranca {
 	
-	//Construtores
-	protected PerguntaDeSeguranca() {}
-	protected PerguntaDeSeguranca(String categoria) {
-		this.pergunta = categoria;
-	}
-
-	
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,6 +17,16 @@ public class PerguntaDeSeguranca {
 	
 	private String pergunta;
 
+	
+	
+	//Construtores
+	protected PerguntaDeSeguranca() {}
+	protected PerguntaDeSeguranca(String categoria) {
+		this.pergunta = categoria;
+	}
+
+	
+	
 	
 	//Métodos
 	public Long getId() {

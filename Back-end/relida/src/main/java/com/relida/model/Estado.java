@@ -10,24 +10,24 @@ import javax.persistence.Id;
 @Entity
 public class Estado {
 	
-	//Construtores
-		public Estado(String estado) {
-			super();
-			this.estado = estado;
-		}
-
-		public Estado() {
-			super();
-		}
-		
-		
-	
 	//Atributos
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
 	private String estado;
+	
+	
+	
+	//Construtores
+	public Estado(String estado) {
+		super();
+		this.estado = estado;
+	}
+
+	public Estado() {
+		super();
+	}
 	
 	
 	

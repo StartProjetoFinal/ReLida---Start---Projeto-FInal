@@ -10,54 +10,6 @@ import javax.persistence.Id;
 
 @Entity
 public class Usuario {
-	
-	//Construtores
-	
-		public Usuario(String nome, String email, String senha, String pergunta_seg, String resposta_seg) {
-			super();
-			this.nome = nome;
-			this.email = email;
-			this.senha = senha;
-			this.pergunta_seg = pergunta_seg;
-			this.resposta_seg = resposta_seg;
-		}
-		
-
-		public Usuario(String nome, String email, String senha, String resposta_seg) {
-		super();
-		this.nome = nome;
-		this.email = email;
-		this.senha = senha;
-		this.resposta_seg = resposta_seg;
-		}
-		
-
-
-		public Usuario(String nome, String email, String resposta_seg) {
-			super();
-			this.nome = nome;
-			this.email = email;
-			this.resposta_seg = resposta_seg;
-		}
-
-
-		public Usuario() {
-			super();
-		}
-		
-		public Usuario(String email, String senha) {
-			super();
-			this.email = email;
-			this.senha = senha;
-		}
-
-		public Usuario(String email) {
-			super();
-			this.email = email;
-		}
-
-		
-		
 		
 	//Atributos
 	@Id
@@ -77,6 +29,55 @@ public class Usuario {
 	
 	@Column(length=100)
 	private String resposta_seg;
+	
+	private String foto_perfil;
+	
+	
+	
+	//Construtores
+	public Usuario(String nome, String email, String senha, String pergunta_seg, String resposta_seg) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.pergunta_seg = pergunta_seg;
+		this.resposta_seg = resposta_seg;
+	}
+	
+
+	public Usuario(String nome, String email, String senha, String resposta_seg) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.resposta_seg = resposta_seg;
+	}
+	
+
+
+	public Usuario(String nome, String email, String resposta_seg) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.resposta_seg = resposta_seg;
+	}
+
+
+	public Usuario() {
+		super();
+	}
+	
+	public Usuario(String email, String senha) {
+		super();
+		this.email = email;
+		this.senha = senha;
+	}
+
+	public Usuario(String email) {
+		super();
+		this.email = email;
+	}
+
 	
 	
 	
@@ -127,22 +128,21 @@ public class Usuario {
 		this.email = email;
 	}
 	
-	
+	public String getFoto_perfil() {
+		return foto_perfil;
+	}
 
-	
 
-	
-	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", pergunta_seg="
-				+ pergunta_seg + ", resposta_seg=" + resposta_seg + "]";
+	public void setFoto_perfil(String foto_perfil) {
+		this.foto_perfil = foto_perfil;
 	}
 
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(email, id, nome, pergunta_seg, resposta_seg, senha);
+		return Objects.hash(email, foto_perfil, id, nome, pergunta_seg, resposta_seg, senha);
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -153,9 +153,16 @@ public class Usuario {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
-		return Objects.equals(email, other.email) && Objects.equals(id, other.id) && Objects.equals(nome, other.nome)
-				&& Objects.equals(pergunta_seg, other.pergunta_seg)
-				&& Objects.equals(resposta_seg, other.resposta_seg) && Objects.equals(senha, other.senha);
+		return Objects.equals(email, other.email) && Objects.equals(foto_perfil, other.foto_perfil)
+				&& Objects.equals(id, other.id) && Objects.equals(nome, other.nome)
+				&& Objects.equals(pergunta_seg, other.pergunta_seg) && Objects.equals(resposta_seg, other.resposta_seg)
+				&& Objects.equals(senha, other.senha);
+	}
+
+
+	@Override
+	public String toString() {
+		return "Usuario [nome=" + nome + ", email=" + email + ", pergunta_seg=" + pergunta_seg + "]";
 	}
 	
 	
