@@ -1,20 +1,34 @@
 
 Listas de coisas que não estão funcionando no back:
 
-1. Após digitar o email na tela de login e clicar em redefinir senha, na tela de redefinir senha, mostrar pergunta associada aquele email. Fazendo a busca no banco, não está retornando as informações do usuário;
+1. Adicionar verificação de requisitos para o cadastro da senha do usuário?
 
-2. Adicionar verificação de requisitos para o cadastro da senha do usuário?
+2. Colocar como NotNull nos atributos obrigatórios das tabelas dos cadastros;
 
-3. Colocar como NotNull nos atributos obrigatórios das tabelas dos cadastros.
+3.Em redefinição de senha, não consegue verificar resposta de seguranca
 
-4. Verificar qual usuario ta logado quando estiver na pagina de cadastrar livros e outras páginas exclusivas.
+4.Alterar dados da conta na página de editar_perfil
 
-5. Colocar nome nav dps que logar.
+5.Retornar imagens do banco
+
+6.Colocar mais inputs do cadastro de livros para mandar pro banco
+
+7.Muitos campos do perfil do usuário não estão no banco
+
+8.redirecionar quando tentar acessar página que exija login. No momento, da erro ao tentar entrar sem logar.
+
+9.deslogar quando alcançar páginas de login, redefinição de senha e cadastro.
 
 
 
+Front:
+Termos de uso?
 
+Setinha muda de posição dps que o usuário loga, no nav
 
+Página de erro para páginas inacessíveis sem login?
+
+Salvar informações?
 
 
 
