@@ -2,11 +2,14 @@ package com.relida.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.relida.dao.AnuncioDAO;
+import com.relida.dao.ComentarioDAO;
 import com.relida.model.Anuncio;
+import com.relida.model.Comentario;
 
 @Controller
 public class AnuncioController {
@@ -14,13 +17,17 @@ public class AnuncioController {
 	@Autowired
 	private AnuncioDAO anuncioDAO;
 	
+	@Autowired
+	private ComentarioDAO comentarioDAO;
+	
 	@GetMapping("/cadastrar_livro")
 	public String exibirTelaCadastrarLivro() {
 		return "cadastrar_livro";
 	}
 		
 	@GetMapping("/anuncio_um")
-	public String exibirTelaAnuncio() {
+	public String exibirTelaAnuncio(String UsuarioLogado, Model modelo) {
+		modelo.addAttribute("UsuarioLogado", UsuarioLogado);
 		return "anuncio_um";
 	}
 	
@@ -52,6 +59,17 @@ public class AnuncioController {
 			anuncio.setAutor("Este livro já está cadastrado!");
 			return "error_cadastrar_livro";}
 	}
+	
+	
+	@RequestMapping("/comentario")
+	public String Comentar(String comentario, Model modelo) {
+		Comentario comentari = new Comentario(comentario);
+		this.comentarioDAO.save(comentari);
+		modelo.addAttribute("comentarioo", comentari);
+		
+		return "anuncio_um";
+	}
+	
 	
 
 

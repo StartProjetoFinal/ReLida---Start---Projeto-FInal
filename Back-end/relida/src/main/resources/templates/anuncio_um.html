@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Meta tags Obrigatórias -->
     <meta charset="utf-8">
@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="/cadastrar_livro.html">Anunciar</a>
+                  <a class="nav-link" href="/cadastrar_livro">Anunciar</a>
                 </li>
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,7 +50,10 @@
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Olá, faça seu login
+                       <td>
+					    <span th:if="${session.Logado == null}">Olá, faça seu login</span>
+					    <span th:unless="${session.Logado == null}"><div th:text="${session.Logado.getNome()}"></div></span>
+					  </td>
                   </a>
                   <div class="dropdown-menu"   aria-labelledby="navbarDropdown">
                     <button id="btn-entrar"type="button" class="btn btn-primary w-100">
@@ -59,6 +62,7 @@
                       <a class="dropdown-item" href="/cadastro_usuario">Cadastre-se</a>
                       <a class="dropdown-item" href="/meus_pedidos">Meus pedidos</a>
                       <a class="dropdown-item" href="/meu_perfil">Meu perfil</a>
+                      <a class="dropdown-item" href="/deslogar">Sair</a>
                 
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -121,12 +125,31 @@
               <div class="media-body">
                 <h5 class="mt-0">Shirlley Barros</h5>
                 Já li esse livro, realmente muito bom.Super recomendo.
-                  <form action="POST">
+                  <form action="/comentario">
                     <div class="form-group mr-4">
-                      <textarea class="form-control mt-2 mb-2" id="exampleFormControlTextarea1" cols="10" rows="2"></textarea>
+                      <textarea name="comentario" class="form-control mt-2 mb-2" id="exampleFormControlTextarea1" cols="10" rows="2"></textarea>
                       <input class="btn-sm  btn-outline-dark float-right"  type="submit" value="Comentar">
                     </div>
                   </form>
+                  
+                  
+                  <td>
+					  <span th:if="${comentarioo != null && session.Logado != null}">
+					    <div class="media mt-3">
+		                  <a class="pr-3" href="#">
+		                    <img src="imagens/heraclito.jpg" style="width:64px;" alt="Imagem de exemplo genérica">
+		                  </a>
+		                  <div class="">
+		                    <h5 class="mt-0"><div th:text="${session.Logado.getNome()}"></div></h5>
+		                    <div th:text="${comentarioo.getComentario()}"></div>
+		                  </div> 
+		                </div>
+					  </span>
+	
+					   <span th:unless="${comentario != null}"></span>
+				  </td>
+                  
+              
                 <div class="media mt-3">
                   <a class="pr-3" href="#">
                     <img src="imagens/wandemberg.jpeg" style="width:64px;" alt="Imagem de exemplo genérica">
@@ -164,8 +187,18 @@
                     <h5 class="mt-0">Bruno Alexandre</h5>
                     Gostei muito!
                   </div>
-                </div>
+                </div> 
+              
+                <h5 class="mt-3"> <br> Novo Comentário</h5>
+              	<form action="/comentario">
+                    <div class="form-group mr-4">
+                      <textarea class="form-control mt-2 mb-2" id="exampleFormControlTextarea1" cols="10" rows="2"></textarea>
+                      <input class="btn-sm  btn-outline-dark float-right"  type="submit" value="Comentar">
+                    </div>
+                  </form>
+                  
               </div>
+              
             </div>
           </div>
           <div class="col-2">
@@ -218,16 +251,16 @@
                &copy; 2022 - ReLida
              </div>
              <div class="col-3">
-               <a class="text-decoration-none text-light " href="privacidade">Política de Privacidade</a>
-             </div>
-             <div class="col">
-               <a class="text-decoration-none text-light" href="privacidade">Termos de Uso</a>
-             </div>
-             <div class="col">
-               <a class="text-decoration-none text-light" href="privacidade">Fale Conosco</a>
-             </div>
-             <div class="col">
-               <a class="text-decoration-none text-light" href="privacidade">Quem Somos</a>
+	            <a class="text-decoration-none text-light " href="privacidade">Política de Privacidade</a>
+	         </div>
+	         <div class="col">
+	           <a class="text-decoration-none text-light" href="#">Termos de Uso</a>
+	         </div>
+	         <div class="col">
+	           <a class="text-decoration-none text-light" href="/fale_conosco">Fale Conosco</a>
+	         </div>
+	         <div class="col">
+	           <a class="text-decoration-none text-light" href="/quem_somos">Quem Somos</a>
              </div>
            </div>
            <div class="row text-light justify-content-center mt-1">

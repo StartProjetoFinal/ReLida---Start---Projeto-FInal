@@ -1,8 +1,13 @@
 package com.relida.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.relida.dao.UsuarioDAO;
 import com.relida.model.Usuario;
 
@@ -21,6 +26,11 @@ public class UsuarioController {
 	@GetMapping("/meu_perfil")
 	public String exibirMeuPerfil() {
 		return "meu_perfil";
+	}
+
+	@GetMapping("/editar_perfil")
+	public String exibirEditarPerfil() {
+		return "editar_perfil";
 	}
 	
 	@GetMapping("/meus_pedidos")
@@ -42,7 +52,7 @@ public class UsuarioController {
 		Usuario usuarioo = usuarioDAO.findByEmail(usuario.getEmail());
 		if (usuarioo==null && usuario.getSenha().equals(senha2)) {
 			this.usuarioDAO.save(usuario);
-			return "index";
+			return "login";
 			}
 		else if (usuarioo != null && usuario.getSenha().equals(senha2)) {
 			usuario.setNome("Esse email já está cadastrado. Tente novamente!");
@@ -54,5 +64,14 @@ public class UsuarioController {
 		}
 	}
 	
+	
+	@RequestMapping("/excluir_conta")
+	public String ExcluirConta(HttpSession session) {
+		Usuario usuario = (Usuario) session.getAttribute("Logado");
+		this.usuarioDAO.deleteById(usuario.getId());
+		
+		return "index";
+	}
 
-}
+	
+	}

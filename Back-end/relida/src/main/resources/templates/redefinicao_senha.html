@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlsn:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Meta tags Obrigatórias -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -23,7 +23,7 @@
               <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
               <ul class="navbar-nav mr-auto">
                   <li class="nav-item">
-                    <a class="nav-link" href="/cadastrar_livro.html">Anunciar</a>
+                    <a class="nav-link" href="/cadastrar_livro">Anunciar</a>
                   </li>
                   <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -84,13 +84,13 @@
                 <img class="img-fluid" src="imagens/LL._logos-removebg-preview.png" alt="">
               </div>
               <div class="col-sm">
-                <form style="border-radius:15px ;" class=" p-4 mt-5 bg-light text-dark">
+                <form action="/redefine" style="border-radius:15px ;" class=" p-4 mt-5 bg-light text-dark">
                     <div class="form-group">
                     <h5 class="form-group ">Responda a pergunta de segurança cadastrada para redefinir sua senha<h5>
                     </div>
                     <div class="form-group">
-                        <label for="respostaSeguranca"><strong ><div th:text="${usuario}"></div></strong></label>
-                        <input type="text" class="form-control" id="respostaSeguranca"  placeholder="Digite a resposta">
+                        <label for="respostaSeguranca"><strong ><div th:text="${pergunta}"></div></strong></label>
+                        <input name="resposta_seg2" type="text" class="form-control" id="respostaSeguranca"  placeholder="Digite a resposta">
                       </div>
                       <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
                         <strong class="texte-center">Requisitos</strong>
@@ -103,11 +103,11 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Nova Senha</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                        <input name="senha1" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Confirmação de Senha</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Repita Senha">
+                        <input name="senha2" type="password" class="form-control" id="exampleInputPassword1" placeholder="Repita Senha">
                       </div>
                       <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -141,13 +141,13 @@
            <a class="text-decoration-none text-light " href="privacidade">Política de Privacidade</a>
          </div>
          <div class="col">
-           <a class="text-decoration-none text-light" href="privacidade">Termos de Uso</a>
+           <a class="text-decoration-none text-light" href="#">Termos de Uso</a>
          </div>
          <div class="col">
-           <a class="text-decoration-none text-light" href="privacidade">Fale Conosco</a>
+           <a class="text-decoration-none text-light" href="/fale_conosco">Fale Conosco</a>
          </div>
          <div class="col">
-           <a class="text-decoration-none text-light" href="privacidade">Quem Somos</a>
+           <a class="text-decoration-none text-light" href="/quem_somos">Quem Somos</a>
          </div>
        </div>
        <div class="row text-light justify-content-center mt-1">

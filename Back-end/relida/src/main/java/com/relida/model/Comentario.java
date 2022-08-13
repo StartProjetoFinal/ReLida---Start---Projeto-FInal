@@ -34,6 +34,10 @@ public class Comentario {
 	
 	
 	//Construtores
+	public Comentario() {
+		super();
+	}
+	
 	public Comentario(String comentario, Usuario usuario, Anuncio anuncio) {
 		super();
 		this.comentario = comentario;
@@ -49,12 +53,21 @@ public class Comentario {
 		this.recomentario = recomentario;
 	}
 	
+	public Comentario(String comentario) {
+		super();
+		this.comentario = comentario;
+	}
+
+	public Comentario(String comentario, Usuario usuario) {
+		super();
+		this.comentario = comentario;
+		this.usuario = usuario;
+	}
 	
+
 	
 	
 	//Métodos
-	
-
 	public Integer getId() {
 		return id;
 	}

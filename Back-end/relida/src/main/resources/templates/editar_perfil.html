@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="/cadastrar_livro.html">Anunciar</a>
+                  <a class="nav-link" href="/cadastrar_livro">Anunciar</a>
                 </li>
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,7 +48,10 @@
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Olá, faça seu login
+                       <td>
+					    <span th:if="${session.Logado == null}">Olá, faça seu login</span>
+					    <span th:unless="${session.Logado == null}"><div th:text="${session.Logado.getNome()}"></div></span>
+					  </td>
                   </a>
                   <div class="dropdown-menu"   aria-labelledby="navbarDropdown">
                     <button id="btn-entrar"type="button" class="btn btn-primary w-100">
@@ -57,6 +60,8 @@
                       <a class="dropdown-item" href="/cadastro_usuario">Cadastre-se</a>
                       <a class="dropdown-item" href="/meus_pedidos">Meus pedidos</a>
                       <a class="dropdown-item" href="/meu_perfil">Meu perfil</a>
+                      <a class="dropdown-item" href="/deslogar">Sair</a>
+                      
                 
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -94,7 +99,7 @@
               <div class="form-group row">
                 <label for="inputNome" class="col-sm-2 col-form-label">Nome</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputNome" placeholder="José Heráclito">
+                  <input readonly type="email" class="form-control" id="inputEmail4" th:placeholder="${session.Logado.getNome()}">
                 </div>
               </div>
               <div class="form-group row">
@@ -165,7 +170,7 @@
               <div class="form-group row">
                 <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputEmail" placeholder="j*************@gmail.com">
+                  <input readonly type="email" class="form-control" id="inputEmail4" th:placeholder="${session.Logado.getEmail()}">
                 </div>              
             </div>
             <div class="form-group row">
@@ -175,7 +180,7 @@
               </div>              
             </div>
             <div class="form-goup text-center">
-              <a class="btn mt-5 ml-5 pl-5 pr-5" style="background-color:#f37706;color: black;" href="/index" role="button">Voltar</a>
+              <a class="btn mt-5 ml-5 pl-5 pr-5" style="background-color:#f37706;color: black;" href="/meu_perfil" role="button">Voltar</a>
               <input class="btn mt-5 ml-5 pl-5 pr-5" style="background-color:#f37706;color: black;" type="submit" value="Salvar">
             </div>
             <hr>
@@ -199,7 +204,7 @@
         Tem certeza que deseja excluir sua conta?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger">Excluir</button>
+        <a href="/excluir_conta"><button href="/excluir_conta" type="button" class="btn btn-danger">Excluir</button></a>
       </div>
     </div>
   </div>

@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="/cadastrar_livro.html">Anunciar</a>
+                  <a class="nav-link" href="/cadastrar_livro">Anunciar</a>
                 </li>
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -49,7 +49,10 @@
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Olá, faça seu login
+                       <td>
+					    <span th:if="${session.Logado == null}">Olá, faça seu login</span>
+					    <span th:unless="${session.Logado == null}"><div th:text="${session.Logado.getNome()}"></div></span>
+					  </td>
                   </a>
                   <div class="dropdown-menu"   aria-labelledby="navbarDropdown">
                     <button id="btn-entrar"type="button" class="btn btn-primary w-100">
@@ -58,6 +61,7 @@
                       <a class="dropdown-item" href="/cadastro_usuario">Cadastre-se</a>
                       <a class="dropdown-item" href="/meus_pedidos">Meus pedidos</a>
                       <a class="dropdown-item" href="/meu_perfil">Meu perfil</a>
+                      <a class="dropdown-item" href="/deslogar">Sair</a>
                 
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -189,16 +193,16 @@
                &copy; 2022 - ReLida
              </div>
              <div class="col-3">
-               <a class="text-decoration-none text-light " href="privacidade">Política de Privacidade</a>
-             </div>
-             <div class="col">
-               <a class="text-decoration-none text-light" href="privacidade">Termos de Uso</a>
-             </div>
-             <div class="col">
-               <a class="text-decoration-none text-light" href="privacidade">Fale Conosco</a>
-             </div>
-             <div class="col">
-               <a class="text-decoration-none text-light" href="privacidade">Quem Somos</a>
+	           <a class="text-decoration-none text-light " href="privacidade">Política de Privacidade</a>
+	         </div>
+	         <div class="col">
+	           <a class="text-decoration-none text-light" href="#">Termos de Uso</a>
+	         </div>
+	         <div class="col">
+	           <a class="text-decoration-none text-light" href="/fale_conosco">Fale Conosco</a>
+	         </div>
+	         <div class="col">
+	           <a class="text-decoration-none text-light" href="/quem_somos">Quem Somos</a>
              </div>
            </div>
            <div class="row text-light justify-content-center mt-1">
