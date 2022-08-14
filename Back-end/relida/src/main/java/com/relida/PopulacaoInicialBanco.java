@@ -34,7 +34,7 @@ public class PopulacaoInicialBanco implements CommandLineRunner {
 	@GetMapping(value = "/image")
 	public @ResponseBody byte[] getImage() throws IOException {
 	    InputStream in = getClass()
-	      .getResourceAsStream("13.jpg");
+	      .getResourceAsStream("anuncio_exemplo.jpg");
 	    return IOUtils.toByteArray(in);
 	}
 	
