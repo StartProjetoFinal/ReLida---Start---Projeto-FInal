@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <!-- Meta tags Obrigatórias -->
@@ -20,7 +20,7 @@
   <!--Navegador-->
   <nav class="navbar  col-12 navbar-expand-lg navbar-light" style="background-color: #F37706;">
     <div class="container-fluid col-12">
-      <a class="navbar-brand" href="index.html"><img style="width:70px;"
+      <a class="navbar-brand" href="index"><img style="width:70px;"
           src="imagens/LL._logos__2_-removebg-preview.png" alt="">ReLida</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
         aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
@@ -56,7 +56,10 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              Olá, faça seu login
+               <td>
+					<span th:if="${session.Logado == null}">Olá, faça seu login</span>
+					<span th:unless="${session.Logado == null}"><div th:text="${session.Logado.getNome()}"></div></span>
+				</td>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <button id="btn-entrar" type="button" class="btn btn-primary w-100">
