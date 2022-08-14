@@ -65,6 +65,11 @@ public class AcessoController {
 	public String exibirPrivacidade() {
 		return "privacidade";
 	}
+
+	@GetMapping("/termos_uso")
+	public String exibirTermosUso() {
+		return "termos_uso";
+	}
 	
 	@RequestMapping("/login_ok")
 	public String efetuarLogin(Usuario usuario, RedirectAttributes ra, HttpSession session) {
