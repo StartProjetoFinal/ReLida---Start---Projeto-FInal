@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class Usuario {
@@ -30,7 +31,8 @@ public class Usuario {
 	@Column(length=100)
 	private String resposta_seg;
 	
-	private String foto_perfil;
+	@Lob
+	private byte[] foto_perfil;
 	
 	
 	
@@ -44,6 +46,13 @@ public class Usuario {
 		this.resposta_seg = resposta_seg;
 	}
 	
+	public Usuario(String nome, String email, byte[] foto_perfil) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.foto_perfil = foto_perfil;
+	}
+
 
 	public Usuario(String nome, String email, String senha, String resposta_seg) {
 		super();
@@ -128,12 +137,12 @@ public class Usuario {
 		this.email = email;
 	}
 	
-	public String getFoto_perfil() {
+	public byte[] getFoto_perfil() {
 		return foto_perfil;
 	}
 
 
-	public void setFoto_perfil(String foto_perfil) {
+	public void setFoto_perfil(byte[] foto_perfil) {
 		this.foto_perfil = foto_perfil;
 	}
 

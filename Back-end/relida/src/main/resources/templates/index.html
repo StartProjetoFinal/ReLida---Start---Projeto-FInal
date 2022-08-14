@@ -203,13 +203,12 @@
               <!--Item-->
               <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                 <div class="card text-center bg-light">
-                  <img class="card-img-top" src="imagens/13.jpg">
-                  <div class="card-header">
-                    R$ 15,50
+                  <img class="card-img-top" th:src="|/imagem/anuncio|">
+                  <div class="card-header" th:text="${valor}">
                   </div>
                   <div class="card-body">
                     <h5 class="card-title"></h5>
-                    <p class="card-text">Vendido por: José Heráclito</p>
+                    <div class="card-text" th:text="${vendido_por}">Vendido por: José Heráclito </div>
                   </div>
                   <div class="card-footer">
                       <a href="/anuncio_um" class="btn btn-sm btn-danger mt-2 d-block ">Comprar</a>

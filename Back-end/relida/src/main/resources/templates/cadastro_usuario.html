@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Meta tags Obrigatórias -->
     <meta charset="utf-8">
@@ -95,10 +95,22 @@
             </div>
             <div class="form-inline">
               <label for="inputPassword" class="">Senha</label>
-              <input type="password" name="senha"  class="form-control mx-sm-3 mb-2" id="inputPassword" placeholder="Digite sua senha" required>
+              <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[_*^%$#!~@,-//]).{4,}" name="senha"  class="form-control mx-sm-3 mb-2" id="exampleInputPassword1" placeholder="Digite sua senha" required>
               <br>
               <input type="password" name="senha2" class="form-control mx-sm-3 mb-2" id="inputPassword" placeholder="Confirme sua senha" required>
             </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" onclick="showHide()" id="icon" > Mostrar senha </input>
+            
+            <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+                        <strong class="texte-center">Requisitos</strong>
+                        <p> 1. A Senha deve conter ao menos uma letra maiúscula e outra minúscula;</p>
+                        <p> 2. A senha deve conter ao menos um número;</p>
+                        <p> 3. A senha deve conter ao menos 1 caractere especial (_*^%$#!~@,-/).</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
             <label for="">Selecione sua pergunta de segurança</label>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="opcao1" checked>
@@ -170,5 +182,6 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	    <script src="script.js"></script>
 </body>
 </html>

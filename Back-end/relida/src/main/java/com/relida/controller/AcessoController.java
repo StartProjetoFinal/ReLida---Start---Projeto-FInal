@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.relida.dao.AnuncioDAO;
 import com.relida.dao.UsuarioDAO;
+import com.relida.model.Anuncio;
 import com.relida.model.Usuario;
 
 @Controller
@@ -18,14 +20,22 @@ public class AcessoController {
 	@Autowired
 	private UsuarioDAO usuarioDAO;
 	
+	@Autowired
+	private AnuncioDAO anuncioDAO;
+	
 	@GetMapping("/index")
-	public String exibirTelaInicial(HttpSession session) {
+	public String exibirTelaInicial(HttpSession session, Model modelo) {
 		System.out.println(session.getAttribute("Logado")); //Verificar no console se está logando corretamente
+		Anuncio anuncio = anuncioDAO.findByTitulo("O Último Olimpiano");
+		modelo.addAttribute("anuncio", anuncio);
+		modelo.addAttribute("valor", "R$ " + String.valueOf(anuncio.getValor()));
+		modelo.addAttribute("vendido_por", "Vendido por: " + anuncio.getAnunciante().getNome());
 		return"index";
 	}
 	
 	@RequestMapping("/login")
-	public String exibirTelaLogin(String mensagem) {
+	public String exibirTelaLogin(String mensagem, HttpSession session) {
+		session.setAttribute("Logado", null);
 		return"login";
 	}
 	@RequestMapping("/error_login")

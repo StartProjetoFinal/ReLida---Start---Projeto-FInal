@@ -1,5 +1,7 @@
 package com.relida.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.relida.dao.UsuarioDAO;
 import com.relida.model.Usuario;
@@ -18,24 +23,28 @@ public class UsuarioController {
 	private UsuarioDAO usuarioDAO;
 	
 	@GetMapping("/cadastro_usuario")
-	public String exibirTelaCadastro() {
+	public String exibirTelaCadastro(HttpSession session) {
+		session.setAttribute("Logado", null);
 		return "cadastro_usuario";
 	}
 	
 	
 	@GetMapping("/meu_perfil")
-	public String exibirMeuPerfil() {
-		return "meu_perfil";
+	public String exibirMeuPerfil(HttpSession session) {
+		if (session.getAttribute("Logado")==null) {return "/login";}
+		else { return "meu_perfil";}
 	}
 
 	@GetMapping("/editar_perfil")
-	public String exibirEditarPerfil() {
-		return "editar_perfil";
+	public String exibirEditarPerfil(HttpSession session) {
+		if (session.getAttribute("Logado")==null) {return "/login";}
+		else { return "editar_perfil";}
 	}
 	
 	@GetMapping("/meus_pedidos")
-	public String exibirTelaMeusPedidos() {
-		return "meus_pedidos";
+	public String exibirTelaMeusPedidos(HttpSession session) {
+		if (session.getAttribute("Logado")==null) {return "/login";}
+		else { return "meus_pedidos";}
 	}
 	
 	
@@ -69,9 +78,38 @@ public class UsuarioController {
 	public String ExcluirConta(HttpSession session) {
 		Usuario usuario = (Usuario) session.getAttribute("Logado");
 		this.usuarioDAO.deleteById(usuario.getId());
+		session.setAttribute("Logado", null);
 		
 		return "index";
 	}
 
 	
+	@RequestMapping("/edita_perfil")
+	public String EditaPerfil(HttpSession session, @RequestParam("imagem") MultipartFile file ) {
+		Usuario usuario = (Usuario) session.getAttribute("Logado");
+		if (file !=null) {
+			try {
+				usuario.setFoto_perfil(file.getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			this.usuarioDAO.save(usuario);
+			return "/meu_perfil";
+			
+		}else {return "/editar_perfil";}
+		
 	}
+	
+	
+	@GetMapping("/imagem/perfil")
+	@ResponseBody
+	public byte[] ExibirImagemPerfil(Model modelo, HttpSession session) {
+		Usuario usuario = (Usuario) session.getAttribute("Logado");
+		Usuario usuarioo = usuarioDAO.findByEmail(usuario.getEmail());
+		return usuarioo.getFoto_perfil();
+		
+	}
+	
+	
+	
+}

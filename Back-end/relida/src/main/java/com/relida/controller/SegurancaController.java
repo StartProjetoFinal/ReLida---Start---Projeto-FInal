@@ -38,20 +38,23 @@ public class SegurancaController {
 	}
 	
 	
-	
 	@RequestMapping("/redefine")
 	public String RedefineSenha(HttpSession session, String resposta_seg2, String senha1, String senha2, Model modelo) {
 		Usuario usuario = (Usuario) session.getAttribute("Logado");
 		System.out.println(usuario);
 		Usuario usuarioo = usuarioDAO.findByEmail(usuario.getEmail());
 		
-		if (senha1.equals(senha2) && resposta_seg2.equals(usuarioo.getPergunta_seg())) {
+		if (senha1.equals(senha2) && resposta_seg2.equals(usuarioo.getresposta_seg())) {
 			this.usuarioDAO.deleteById(usuarioo.getId());
 			usuarioo.setSenha(senha1);
 			this.usuarioDAO.save(usuarioo);
 			return "login";	
-		} else {
-			modelo.addAttribute("erro", "Você digitou errou algo. Tente novamente.");
+		}else if (!senha1.equals(senha2)) {
+			modelo.addAttribute("erro", "Você digitou senhas diferentes. Tente novamente.");
+			return "error_redefinicao_senha";
+		} 
+		else {
+			modelo.addAttribute("erro", "Sinto muito, você não digitou a resposta corretamente.");
 			return "error_redefinicao_senha";
 		}
 	

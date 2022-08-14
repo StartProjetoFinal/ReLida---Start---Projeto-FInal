@@ -85,11 +85,11 @@
       <div class="container col-11">
         <div class="row">
           <div class="col-3 pl-0 pr-0">
-            <h2>O Último Olimpiano</h2>
+            <h2><div th:text="${anuncio.getTitulo()}"></h2>
             <div class="card mt-3 " style="width: 11rem; height: 19rem; background-color: transparent; border:transparent" >
-                <img class="pl-4 pt-3" style="width:230px ;" src="imagens/13.jpg" alt="Imagem de capa do card">
+                <img class="pl-4 pt-3" style="width:230px ;" th:src="|/imagem/anuncio|" alt="Imagem de capa do card">
                 <div class=" p-0 ">
-                  <p class="pb-0">Vendido por: Maria Silva</p>
+                  <p class="pb-0" th:text="${vendido_por}"></p>
                 </div>
               </div>
           </div>
@@ -98,19 +98,19 @@
               <div class="form-group row">
                 <label for="staticCategoria" class="col-sm-2 col-form-label">Categoria :</label>
                 <div class="col-sm-10">
-                  <input  type="text" readonly class="form-control-plaintext border" id="staticCategoria" value="Ficção Científica">
+                  <input  type="text" readonly class="form-control-plaintext border" id="staticCategoria" th:value="${anuncio.getCategoria}">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="staticComentario" class="col-sm-2 col-form-label">Comentário :</label>
                 <div class="col-sm-10">
-                  <textarea name="staticComentario" id="staticComentario" cols="60" rows="6" readonly>Livro em bom estado, com marcas de uso em algumas páginas.Quem gosta de uma boa ficção e aventuras vai gostar muito desse livro".</textarea>
+                  <textarea name="staticComentario" id="staticComentario" cols="60" rows="6" readonly th:text="${anuncio.getComentario()}">Livro em bom estado, com marcas de uso em algumas páginas.Quem gosta de uma boa ficção e aventuras vai gostar muito desse livro".</textarea>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="staticValor" class="col-sm-2 col-form-label">Valor:</label>
                 <div class="col-sm-10">
-                  <input  type="text" readonly class="form-control-plaintext border" id="staticValor" value="R$ 15,50">
+                  <input  type="text" readonly class="form-control-plaintext border" id="staticValor" th:value="${valor}">
                 </div>
               </div>
               <div class="form-goup text-center">
@@ -137,7 +137,7 @@
 					  <span th:if="${comentarioo != null && session.Logado != null}">
 					    <div class="media mt-3">
 		                  <a class="pr-3" href="#">
-		                    <img src="imagens/heraclito.jpg" style="width:64px;" alt="Imagem de exemplo genérica">
+		                    <img th:src="|/imagem/perfil|" style="width:64px;">
 		                  </a>
 		                  <div class="">
 		                    <h5 class="mt-0"><div th:text="${session.Logado.getNome()}"></div></h5>

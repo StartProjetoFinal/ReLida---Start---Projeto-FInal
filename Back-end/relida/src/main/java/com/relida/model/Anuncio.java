@@ -1,6 +1,5 @@
 package com.relida.model;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -23,11 +23,9 @@ public class Anuncio {
 	@ManyToOne
 	private Usuario anunciante;
 	
-	@ManyToOne
-	private TipoOperacao tipo_operacao;
+	private String tipo_operacao;
 	
-	@ManyToOne
-	private CategoriaLivro categoria;
+	private String categoria;
 	
 	private double valor;
 	
@@ -37,8 +35,8 @@ public class Anuncio {
 	@Column(length=100)
 	private String autor;
 	
-	@DateTimeFormat(style = "yyyy-MM-dd") //Verificar atributo name em cadastrar_livro >form>input
-	private LocalDate data_edicao;
+	@DateTimeFormat(style = "yyyy") //Verificar atributo name em cadastrar_livro >form>input
+	private String data_edicao;
 	
 	@Column(length=50)
 	private String outros;
@@ -46,14 +44,13 @@ public class Anuncio {
 	@Column(length=50)
 	private String cidade;
 	
-	@ManyToOne
-	private Estado estado;
+	private String estado;
 	
-	@Column(length=8) //Ver no html
-	private Long cep;
+	@Column(length=11) //Ver no html
+	private String cep;
 	
-	@Column(length=100)
-	private String foto_diretorio;  // Ver como salvar foto no static e só pegar a string do diretório
+	@Lob
+	private byte[] foto_anuncio;  // Ver como salvar foto no static e só pegar a string do diretório
 	
 	@Column(length=500)
 	private String comentario;
@@ -66,9 +63,9 @@ public class Anuncio {
 		super();
 	}
 	
-	public Anuncio(Usuario anunciante, TipoOperacao tipo_operacao, CategoriaLivro categoria, double valor,
-			String titulo, String autor, LocalDate data_edicao, String outros, String cidade, Estado estado, Long cep,
-			String foto_diretorio, String comentario) {
+	public Anuncio(Usuario anunciante, String tipo_operacao, String categoria, double valor,
+			String titulo, String autor, String data_edicao, String outros, String cidade, String estado, String cep,
+			byte[] foto_anuncio, String comentario) {
 		super();
 		this.anunciante = anunciante;
 		this.tipo_operacao = tipo_operacao;
@@ -81,12 +78,12 @@ public class Anuncio {
 		this.cidade = cidade;
 		this.estado = estado;
 		this.cep = cep;
-		this.foto_diretorio = foto_diretorio;
+		this.foto_anuncio = foto_anuncio;
 		this.comentario = comentario;
 	}
 	//Construtor com campos não obrigatórios:
-	public Anuncio(Integer id, Usuario anunciante, TipoOperacao tipo_operacao, CategoriaLivro categoria, double valor,
-			String titulo, String cidade, Estado estado, Long cep, String foto_diretorio) {
+	public Anuncio(Integer id, Usuario anunciante, String tipo_operacao, String categoria, double valor,
+			String titulo, String cidade, String estado, String cep, byte[] foto_anuncio) {
 		super();
 		this.id = id;
 		this.anunciante = anunciante;
@@ -97,7 +94,7 @@ public class Anuncio {
 		this.cidade = cidade;
 		this.estado = estado;
 		this.cep = cep;
-		this.foto_diretorio = foto_diretorio;
+		this.foto_anuncio = foto_anuncio;
 	}
 	
 
@@ -130,19 +127,19 @@ public Anuncio(double valor, String titulo, String autor, String outros, String 
 		this.anunciante = anunciante;
 	}
 
-	public TipoOperacao getTipo_operacao() {
+	public String getTipo_operacao() {
 		return tipo_operacao;
 	}
 
-	public void setTipo_operacao(TipoOperacao tipo_operacao) {
+	public void setTipo_operacao(String tipo_operacao) {
 		this.tipo_operacao = tipo_operacao;
 	}
 
-	public CategoriaLivro getCategoria() {
+	public String getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(CategoriaLivro categoria) {
+	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
 
@@ -170,11 +167,11 @@ public Anuncio(double valor, String titulo, String autor, String outros, String 
 		this.autor = autor;
 	}
 
-	public LocalDate getData_edicao() {
+	public String getData_edicao() {
 		return data_edicao;
 	}
 
-	public void setData_edicao(LocalDate data_edicao) {
+	public void setData_edicao(String data_edicao) {
 		this.data_edicao = data_edicao;
 	}
 
@@ -194,28 +191,28 @@ public Anuncio(double valor, String titulo, String autor, String outros, String 
 		this.cidade = cidade;
 	}
 
-	public Estado getEstado() {
+	public String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(Estado estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 
-	public Long getCep() {
+	public String getCep() {
 		return cep;
 	}
 
-	public void setCep(Long cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 
-	public String getFoto_diretorio() {
-		return foto_diretorio;
+	public byte[] getFoto_anuncio() {
+		return foto_anuncio;
 	}
 
-	public void setFoto_diretorio(String foto_diretorio) {
-		this.foto_diretorio = foto_diretorio;
+	public void setFoto_anuncio(byte[] foto_anuncio) {
+		this.foto_anuncio = foto_anuncio;
 	}
 
 	public String getComentario() {
@@ -231,12 +228,12 @@ public Anuncio(double valor, String titulo, String autor, String outros, String 
 		return "Anuncio [id=" + id + ", anunciante=" + anunciante + ", tipo_operacao=" + tipo_operacao + ", categoria="
 				+ categoria + ", valor=" + valor + ", titulo=" + titulo + ", autor=" + autor + ", data_edicao="
 				+ data_edicao + ", outros=" + outros + ", cidade=" + cidade + ", estado=" + estado + ", cep=" + cep
-				+ ", foto_diretorio=" + foto_diretorio + ", comentario=" + comentario + "]";
+				+ ", foto_anuncio=" + foto_anuncio + ", comentario=" + comentario + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(anunciante, autor, categoria, cep, cidade, comentario, data_edicao, estado, foto_diretorio,
+		return Objects.hash(anunciante, autor, categoria, cep, cidade, comentario, data_edicao, estado, foto_anuncio,
 				id, outros, tipo_operacao, titulo, valor);
 	}
 
@@ -253,7 +250,7 @@ public Anuncio(double valor, String titulo, String autor, String outros, String 
 				&& Objects.equals(categoria, other.categoria) && Objects.equals(cep, other.cep)
 				&& Objects.equals(cidade, other.cidade) && Objects.equals(comentario, other.comentario)
 				&& Objects.equals(data_edicao, other.data_edicao) && Objects.equals(estado, other.estado)
-				&& Objects.equals(foto_diretorio, other.foto_diretorio) && Objects.equals(id, other.id)
+				&& Objects.equals(foto_anuncio, other.foto_anuncio) && Objects.equals(id, other.id)
 				&& Objects.equals(outros, other.outros) && Objects.equals(tipo_operacao, other.tipo_operacao)
 				&& Objects.equals(titulo, other.titulo)
 				&& Double.doubleToLongBits(valor) == Double.doubleToLongBits(other.valor);

@@ -10,7 +10,7 @@ public interface UsuarioDAO extends JpaRepository<Usuario, Integer> {
 	
 	Usuario findByEmail(String email);
 	Usuario findByEmailAndSenha(String email, String senha);
-//		String findByNome(String nome);
+	String findByNome(String nome);
 	Usuario deleteByEmail(String email);
 	
 }
