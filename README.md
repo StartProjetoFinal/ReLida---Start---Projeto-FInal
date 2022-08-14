@@ -1,34 +1,25 @@
 
 Listas de coisas que não estão funcionando no back:
 
-1. Adicionar verificação de requisitos para o cadastro da senha do usuário?
 
-2. Colocar como NotNull nos atributos obrigatórios das tabelas dos cadastros;
-
-3.Em redefinição de senha, não consegue verificar resposta de seguranca
-
-4.Alterar dados da conta na página de editar_perfil
-
-5.Retornar imagens do banco
-
-6.Colocar mais inputs do cadastro de livros para mandar pro banco
-
-7.Muitos campos do perfil do usuário não estão no banco
-
-8.redirecionar quando tentar acessar página que exija login. No momento, da erro ao tentar entrar sem logar.
-
-9.deslogar quando alcançar páginas de login, redefinição de senha e cadastro.
+1. Conexão Http do usuario caindo rápido demais;
+2. Exigir que os atributos mais importantes das classes não possam ser nulos utilizando @NotNull nos modelos, em princípio, não é uma boa ideia. Muitas de
+nossas validações nos controllers utilizam a nulidade de algumas classes, inviabilizando, por exemplo, uma alteração para uma string vazia dentro de um 
+constructor. Também, como nos formulários de cadastro algums campos são já exigidos, essa restrição se torna desnecessária;
+3. Hospedar no GitHub;
+4. Opção de excluir anuncio;
+5. Adicionar campos não preenchidos de usuario, que estão na pagina de meu perfil, mas não estão no modelo Usuario;
+6. Colocar R$ no valor do anuncio vindo do banco, ou colocar no front;
+7.Muitos campos do perfil do usuário não estão no banco.
 
 
 
 Front:
-Termos de uso?
+1.Setinha muda de posição dps que o usuário loga, no nav
+2.Salvar informações?
+3. Página pagamento não está sendo mostrada corretamente no eclipse. Provavelmente uma tag que não foi fechada;
+4. Muitos campos do perfil do usuário não estão no banco.
 
-Setinha muda de posição dps que o usuário loga, no nav
-
-Página de erro para páginas inacessíveis sem login?
-
-Salvar informações?
 
 
 
