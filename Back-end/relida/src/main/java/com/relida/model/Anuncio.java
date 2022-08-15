@@ -82,6 +82,22 @@ public class Anuncio {
 		this.foto_anuncio = foto_anuncio;
 		this.comentario = comentario;
 	}
+	public Anuncio(Usuario anunciante, String tipo_operacao, String categoria, double valor,
+			String titulo, String autor, String data_edicao, String outros, String cidade, String estado, String cep, String comentario) {
+		super();
+		this.anunciante = anunciante;
+		this.tipo_operacao = tipo_operacao;
+		this.categoria = categoria;
+		this.valor = valor;
+		this.titulo = titulo;
+		this.autor = autor;
+		this.data_edicao = data_edicao;
+		this.outros = outros;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.cep = cep;
+		this.comentario = comentario;
+	}
 	//Construtor com campos não obrigatórios:
 	public Anuncio(Integer id, Usuario anunciante, String tipo_operacao, String categoria, double valor,
 			String titulo, String cidade, String estado, String cep, byte[] foto_anuncio) {

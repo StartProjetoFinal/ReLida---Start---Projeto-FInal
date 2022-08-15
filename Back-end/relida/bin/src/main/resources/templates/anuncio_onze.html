@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="style.css">
      <!--Favicon-->
      <link rel="shortcut icon" href="imagens/favicon-32x32.png" type="image/x-icon">
-    
-    <title>ReLida | Cadastrar livro</title>
+
+
+    <title>ReLida | Livro:Comece pelo porquê</title>
   </head>
   <body style="background-color: black;">
+    <!--Navegador-->
     <nav class="navbar col-12 navbar-expand-lg navbar-light" style="background-color: #F37706;">
         <div class="container-fluid col-12">
             <a class="navbar-brand" href="/index"><img style="width:70px;" src="imagens/LL._logos__2_-removebg-preview.png" alt="">ReLida</a>
@@ -78,142 +80,101 @@
         </div>
     </nav>
 
-    <!--Principal --> 
+    <!-- Principal --> 
     <main>
-      <div class="container" >
+      <div class="container col-11">
         <div class="row">
-          <div class="col mt-5">
-            <img class="img-fluid"src="imagens/LL._logos-removebg-preview.png" alt="">
+          <div class="col-3 pl-0 pr-0">
+            <h2 class="mt-4">Comece pelo porquê</h2>
+            <div class="card mt-3 " style="width: 11rem; height: 19rem; background-color: transparent; border:transparent" >
+                <img src="imagens/11.jpg" class="pl-4 pt-3" style="width:230px ;" alt="">
+                <div class="text-center ml-5 ">
+                  <p> Vendido por: André Gomes</p>
+                </div>
+              </div>
           </div>
-          <div class="col-md mx-auto">
-            <form action="/cadastro_livro_verificacao" enctype="multipart/form-data" method="post" style="border-radius:15px ;" class="p-4 mt-5 bg-light text-dark">
-              <h1 class="text-center">Cadastro de Livro</h1>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputOpcao">Você irá colocar seu livro para</label>
-                  <select name="tipo_operacao" id="inputOpcao" class="form-control" required>
-                    <option  selected>Selecione</option>
-                    <option>Venda</option>
-                    <option>Troca</option>
-                    <option>Doação</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputValor">Valor</label>
-                  <input name="valor" type="text" class="form-control" id="inputValor" placeholder="R$" required>
+          <div class="col-7 pl-0">
+            <form class="p-4 mt-5 bg-light text-dark">
+              <div class="form-group row">
+                <label for="staticCategoria" class="col-sm-2 col-form-label">Categoria :</label>
+                <div class="col-sm-10">
+                  <input  type="text" readonly class="form-control-plaintext border" id="staticCategoria" value="AutoAjuda">
                 </div>
               </div>
-              <div class="form-group">
-                <label for="inputTitulo">Titulo do Livro</label>
-                <input name="titulo" type="text" class="form-control" id="inputTitulo" required>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-9">
-                  <label for="inputAutor">Autor do Livro</label>
-                  <input name="autor" type="text" class="form-control" id="inputAutor" required>
-                </div>
-                <div class="form-group col-md-3">
-                  <label for="inputAno">Ano de Edição</label>
-                  <input name='data_edicao' type="text" class="form-control" id="inputAno">
+              <div class="form-group row">
+                <label for="staticComentario" class="col-sm-2 col-form-label">Comentário:</label>
+                <div class="col-sm-10">
+                  <textarea name="staticComentario" id="staticComentario" cols="60" rows="6" readonly th:text="${anuncio.getComentario()}">Livro em bom estado. </textarea>
                 </div>
               </div>
-              <div class="form-row">
-                <div class="form-group col-md-7">
-                  <label for="inputEstado">Escolha a Categoria do Livro</label>
-                  <select name="categoria" id="inputEstado" class="form-control" required>
-                    <option selected>Selecione</option>
-                    <option>Romance</option>
-                    <option>Drama</option>
-                    <option>Ficção Cientifica</option>
-                    <option>Fantasia</option>
-                    <option>Suspense</option>
-                    <option>História em Quadrinhos</option>
-                    <option>Literatura Brasileira</option>
-                    <option>Literatura Infantil</option>
-                    <option>Literatura Infanto-Juvenil</option>
-                    <option>Literatura Estrangeira</option>
-                    <option>Terror</option>
-                    <option>Autobiografia</option>
-                    <option>AutoAjuda</option>
-                    <option>Outros</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-5">
-                  <label for="inputOutros">Outros</label>
-                  <input name="outros" type="text" class="form-control" id="inputOutros">
-                </div>               
-              </div>             
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputCity">Cidade</label>
-                  <input name="cidade" type="text" class="form-control" id="inputCity">
-                </div>
-                <div class="form-group col-md-4">
-                  <label for="inputEstado">Estado</label>
-                  <select name="estado" id="inputEstado" class="form-control">
-                    <option selected>Selecione</option>
-                    <option>Acre</option>
-                    <option>Alagoas</option>
-                    <option>Amapá</option>
-                    <option>Amazonas</option>
-                    <option>Bahia</option>
-                    <option>Ceará</option>
-                    <option>Distrito Federal</option>
-                    <option>Espírito Santo</option>
-                    <option>Goiás</option>
-                    <option>Maranhão</option>
-                    <option>Mato Grosso</option>
-                    <option>Mato Grosso do Sul</option>
-                    <option>Minas Gerais</option>
-                    <option>Pará</option>
-                    <option>Paraíba</option>
-                    <option>Paraná</option>
-                    <option>Pernambuco</option>
-                    <option>Piauí</option>
-                    <option>Rio de Janeiro</option>
-                    <option>Rio Grande do Norte</option>
-                    <option>Rio Grande do Sul</option>
-                    <option>Rondônia</option>
-                    <option>Roraima</option>
-                    <option>Santa Catarina</option>
-                    <option>São Paulo</option>
-                    <option>Sergipe</option>
-                    <option>Tocantins</option>        
-                  </select>
-                </div>
-                <div class="form-group col-md-2">
-                  <label for="inputCEP">CEP</label>
-                  <input name='cep' type="text" class="form-control" id="inputCEP" required>
+              <div class="form-group row">
+                <label for="staticValor" class="col-sm-2 col-form-label">Valor:</label>
+                <div class="col-sm-10">
+                  <input  type="text" readonly class="form-control-plaintext border" id="staticValor" value="13,50">
                 </div>
               </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="exampleFormControlFile1">Adicione uma foto da capa do seu livro</label>
-              </div>
-                <div class="form-group pl-2">
-                  <input name="imagem" type="file" class="form-control-file" id="exampleFormControlFile1">
-                </div>
-              </div>
-                <div class="form-group">
-                  <label for="exampleFormControlTextarea1">Adicione um comentário</label>
-                  <textarea name="comentario" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
               <div class="form-goup text-center">
                 <a class="btn  pl-5 pr-5" style="background-color:#f37706;color: black;" href="/index" role="button">Voltar</a>
-                <input formaction="/cadastro_livro_verificacao" class="btn pl-5 pr-5" style="background-color:#f37706;" type="submit" value="Cadastrar">
-              </div> 
+                <a href="/carrinho"><input class="btn pl-5 pr-5 btn-danger"   type="button" value="Adicionar ao Carrinho"> </a>
+              </div>
             </form>
+             <!-- Comentários --> 
+             <h4 class="mt-3">Comentários</h4>
+             <div class="media  mt-3 bg-light text-dark pb-3 pt-3 pl-5">
+              <div class="media-body">
+                <h5 class="mt-3"> <br> Novo Comentário</h5>
+              	<form action="/comentario">
+                    <div class="form-group mr-4">
+                      <textarea class="form-control mt-2 mb-2" id="exampleFormControlTextarea1" cols="10" rows="2"></textarea>
+                      <input class="btn-sm  btn-outline-dark float-right"  type="submit" value="Comentar">
+                    </div>
+                  </form>
+                  
+              </div>
+              
+            </div>
           </div>
-          
+          <div class="col-2">
+            <div class="p-4 mt-5 bg-light text-dark">
+              <div class="card text-center bg-light">
+                <img class="card-img-top" src="imagens/7.png">
+                  <div class="card-header">
+                    R$ 20,00
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Vendido por: Ediane Fernanda</p>
+                  </div>
+                  <div class="card-footer">
+                      <a href="/anuncio_sete" class="btn btn-sm btn-danger mt-2 d-block ">Comprar</a>
+                </div>
+              </div>
+              <hr class="mt-3">
+              <div class="card text-center bg-light">
+                <img class="card-img-top" src="imagens/6.png">
+                <div class="card-header">
+                  R$ 15,00
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  <p class="card-text">Vendido por: Nataly Ferreira</p>
+                </div>
+                <div class="card-footer">
+                    <a href="/anuncio_seis" class="btn btn-sm btn-danger mt-2 d-block ">Comprar</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        
+        
+        
         </div>
       </div>
-
-
-
     </main>
 
-    <br>
-    <br>
+  <br>
+  <br>
         <!-- Rodapé --> 
  
         <footer>
@@ -241,22 +202,16 @@
             </div>
           </div>
         </footer>
+    
             
     
         
         
     
+      <!-- JavaScript (Opcional) -->
       <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
-      <script type="text/javascript" src="jquery-3.6.0.min.js" ></script>
-      <script type="text/javascript" src="jquery.mask.js" ></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-      
-          <script type="text/javascript">
-        	$(document).ready(function(){
-            	$('#inputCEP').mask('00.000-000');
-            	$('#inputAno').mask('0000');
-        	});
-    	  </script>
-      
     </body>
     </html>

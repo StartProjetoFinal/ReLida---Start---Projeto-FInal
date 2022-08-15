@@ -41,6 +41,7 @@ public class PopulacaoInicialBanco implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
+		//Exemplo principal de anuncio
 		Usuario usuarioo = usuarioDAO.findByEmail("joseheraclito@gmail.com");
 		Anuncio anuncioo = anuncioDAO.findByTitulo("O Último Olimpiano");
 		
@@ -50,6 +51,8 @@ public class PopulacaoInicialBanco implements CommandLineRunner {
 			this.usuarioDAO.save(usuario);
 			this.anuncioDAO.save(anuncio);
 		}
+		
+		// População de usuarios
 		Usuario u1= new Usuario("Jose");
 		u1.setEmail("jose_h@gmail.com");
 		u1.setPergunta_seg("Amigo de Infancia");
@@ -100,6 +103,19 @@ public class PopulacaoInicialBanco implements CommandLineRunner {
 		usuarioDAO.save(u6);
 		usuarioDAO.save(u7);
 
+		
+		
+		
+		//População de anuncios para impressão em meus pedidos
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 	}
 	
