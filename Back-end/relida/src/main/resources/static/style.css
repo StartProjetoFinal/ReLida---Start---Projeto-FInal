@@ -49,6 +49,10 @@ height: 320px;
     margin-top: 300px;
 }
 
+.dropdown-item:hover{
+    background-color: #F37706;
+}
+
 
 .img-fluid{
     padding: 15px;
