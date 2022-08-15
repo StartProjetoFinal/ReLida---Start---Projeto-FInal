@@ -52,61 +52,77 @@ public class PopulacaoInicialBanco implements CommandLineRunner {
 			this.anuncioDAO.save(anuncio);
 		}
 		
-		// População de usuarios
-		Usuario u1= new Usuario("Jose");
-		u1.setEmail("jose_h@gmail.com");
-		u1.setPergunta_seg("Amigo de Infancia");
-		u1.setresposta_seg("Roberto");
-		u1.setSenha("Jhj12345@");
+		Usuario usuario1 = usuarioDAO.findByEmail("jose_h@gmail.com");
 		
-		Usuario u2= new Usuario("Maria");
-		u2.setEmail("mariasilva@hotmail.com");
-		u2.setPergunta_seg("Livro Favorito");
-		u2.setresposta_seg("Como eu era antes de voce");
-		u2.setSenha("Ms12345@");
-		
-		Usuario u3= new Usuario("Shirlley");
-		u3.setEmail("devshirlleybarros@gmail.com");
-		u3.setPergunta_seg("Animal Estimacao");
-		u3.setresposta_seg("Lessi");
-		u3.setSenha("Sb12345@");
-		
-		Usuario u4= new Usuario("Wandemberg");
-		u4.setEmail("ss.wandemberg@gmail.com");
-		u4.setPergunta_seg("Livro favorito");
-		u4.setresposta_seg("O ultimo olimpiano");
-		u4.setSenha("Ws12345@");
-		
-		Usuario u5= new Usuario("Larissa");
-		u5.setEmail("larissa12_gomes@hotmail.com");
-		u5.setPergunta_seg("Animal de Estimacao");
-		u5.setresposta_seg("Snow");
-		u5.setSenha("Lg12345@");
-		
-		Usuario u6= new Usuario("Bruno");
-		u6.setEmail("brunnoaalleexandre@gmail.com");
-		u6.setPergunta_seg("Livro favorito");
-		u6.setresposta_seg("Do mil ao Milhao");
-		u6.setSenha("Ba12345@");
-		
-		Usuario u7= new Usuario("Francisco");
-		u7.setEmail("francisco.vrs.lira@gmail.com");
-		u7.setPergunta_seg("Amigo de Infancia");
-		u7.setresposta_seg("Fernando");
-		u7.setSenha("Fl12345@");
-		
-		usuarioDAO.save(u1);
-		usuarioDAO.save(u2);
-		usuarioDAO.save(u3);
-		usuarioDAO.save(u4);
-		usuarioDAO.save(u5);
-		usuarioDAO.save(u6);
-		usuarioDAO.save(u7);
-
+		if (usuario1==null) {
+			// População de usuarios
+			Usuario u1= new Usuario("Jose");
+			u1.setEmail("jose_h@gmail.com");
+			u1.setPergunta_seg("Amigo de Infancia");
+			u1.setresposta_seg("Roberto");
+			u1.setSenha("Jhj12345@");
+			
+			Usuario u2= new Usuario("Maria");
+			u2.setEmail("maria@hotmail.com");
+			u2.setPergunta_seg("Livro Favorito");
+			u2.setresposta_seg("Como eu era antes de voce");
+			u2.setSenha("Ms12345@");
+			
+			Usuario u3= new Usuario("Shirlley");
+			u3.setEmail("devshirlleybarros@gmail.com");
+			u3.setPergunta_seg("Animal Estimacao");
+			u3.setresposta_seg("Lessi");
+			u3.setSenha("Sb12345@");
+			
+			Usuario u4= new Usuario("Wandemberg");
+			u4.setEmail("ss.wandemberg@gmail.com");
+			u4.setPergunta_seg("Livro favorito");
+			u4.setresposta_seg("O ultimo olimpiano");
+			u4.setSenha("Ws12345@");
+			
+			Usuario u5= new Usuario("Larissa");
+			u5.setEmail("larissa12_gomes@hotmail.com");
+			u5.setPergunta_seg("Animal de Estimacao");
+			u5.setresposta_seg("Snow");
+			u5.setSenha("Lg12345@");
+			
+			Usuario u6= new Usuario("Bruno");
+			u6.setEmail("brunnoaalleexandre@gmail.com");
+			u6.setPergunta_seg("Livro favorito");
+			u6.setresposta_seg("Do mil ao Milhao");
+			u6.setSenha("Ba12345@");
+			
+			Usuario u7= new Usuario("Francisco");
+			u7.setEmail("francisco.vrs.lira@gmail.com");
+			u7.setPergunta_seg("Amigo de Infancia");
+			u7.setresposta_seg("Fernando");
+			u7.setSenha("Fla12345@");
+			
+	
+			usuarioDAO.save(u1);
+			usuarioDAO.save(u2);
+			usuarioDAO.save(u3);
+			usuarioDAO.save(u4);
+			usuarioDAO.save(u5);
+			usuarioDAO.save(u6);
+			usuarioDAO.save(u7);
+		}
 		
 		
 		
 		//População de anuncios para impressão em meus pedidos
+		Usuario usuario8 = usuarioDAO.findByEmail("mariajose@gmail.com");
+
+		if(usuario8==null) {
+			Usuario usuario81 = new Usuario("Maria José", "mariajose@gmail.com", "Ab@8", "Livro favorito?", "Admirável novo mundo");
+			Anuncio anuncio8 = new Anuncio(usuario81, "Venda", "Autoajuda", 31.50, "Como fazer amigos e influenciar pessoas", "Dale Carnegie", "1936", "", "Recife", "Pernambuco", "50.060-004", "Em perfeito estado.");
+			this.usuarioDAO.save(usuario81);
+			this.anuncioDAO.save(anuncio8);
+			Usuario usuario9 = new Usuario("Marcos Felipe", "marcosfelipe@gmail.com", "Ab@9", "Livro favorito?", "Demian");
+			Anuncio anuncio9 = new Anuncio(usuario9, "Venda", "Autoajuda", 18.00, "Do mil ao Milhão", "Thiago Lolkus Nigro", "2018", "", "Recife", "Pernambuco", "50.060-004", "Ta bom");
+			this.usuarioDAO.save(usuario9);
+			this.anuncioDAO.save(anuncio9);
+		}
 		
 		
 		
