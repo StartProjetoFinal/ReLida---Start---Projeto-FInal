@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.relida.dao.AnuncioDAO;
+import com.relida.dao.OperacaoDAO;
 import com.relida.dao.UsuarioDAO;
 import com.relida.model.Anuncio;
 import com.relida.model.Operacao;
@@ -27,6 +28,9 @@ public class PopulacaoInicialBanco implements CommandLineRunner {
 	
 	@Autowired
 	private AnuncioDAO anuncioDAO;
+
+	@Autowired
+	private OperacaoDAO OperacaoDAO;
 	
 	@GetMapping(value = "/image")
 	public @ResponseBody byte[] getImage() throws IOException {
@@ -113,10 +117,13 @@ public class PopulacaoInicialBanco implements CommandLineRunner {
 			this.anuncioDAO.save(anuncio9);
 			
 			//População de operações para os anúncios exemplos
-			Operacao operacao1 = new Operacao(anuncio9, u4);
-			Operacao operacao2 = new Operacao(anuncio8, u4);
-			Operacao operacao3 = new Operacao(anuncio, u4);
+			Operacao operacao1 = new Operacao( anuncio9, u4, "2022-08-14 13:50:34");
+			Operacao operacao2 = new Operacao(anuncio8, u4, "2022-08-14 20:30:12");
+			Operacao operacao3 = new Operacao(anuncio, u4, "2022-08-15 09:10:35");
 			
+			this.OperacaoDAO.save(operacao3);
+			this.OperacaoDAO.save(operacao2);
+			this.OperacaoDAO.save(operacao1);
 			
 			
 			}

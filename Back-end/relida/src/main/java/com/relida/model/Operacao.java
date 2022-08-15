@@ -25,7 +25,7 @@ public class Operacao {
 	@ManyToOne
 	private Usuario usuario;
 	
-	@DateTimeFormat(style = "yyyy-mm-dd hh-mmss") 
+	@DateTimeFormat(style = "yyyy-mm-dd hh:mm:ss") 
 	private String data_hora_operacao;
 
 	
