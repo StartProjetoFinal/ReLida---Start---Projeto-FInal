@@ -110,6 +110,8 @@ public class AnuncioController {
 		modelo.addAttribute("anuncio", anuncio);
 		return anuncio.getFoto_anuncio();
 	}
+	
+	
 
 
 }
