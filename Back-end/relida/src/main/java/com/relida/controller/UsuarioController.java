@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.relida.dao.AnuncioDAO;
+import com.relida.dao.OperacaoDAO;
 import com.relida.dao.UsuarioDAO;
-import com.relida.model.Anuncio;
 import com.relida.model.Usuario;
 
 @Controller
@@ -26,6 +26,9 @@ public class UsuarioController {
 	
 	@Autowired
 	private AnuncioDAO anuncioDAO;
+
+	@Autowired
+	private OperacaoDAO operacaoDAO;
 	
 	@GetMapping("/cadastro_usuario")
 	public String exibirTelaCadastro(HttpSession session) {
@@ -50,9 +53,11 @@ public class UsuarioController {
 	public String exibirTelaMeusPedidos(HttpSession session, Model modelo) {
 		if (session.getAttribute("Logado")==null) {return "/login";}
 		else { 
-			Anuncio anuncio1 = anuncioDAO.findByTitulo("O Último Olimpiano");
-			Anuncio anuncio2 = anuncioDAO.findByTitulo("Como fazer amigos e influenciar pessoas");
-			Anuncio anuncio3 = anuncioDAO.findByTitulo("O Último Olimpiano");
+			
+			modelo.addAttribute("ListaPedidos", operacaoDAO.findAll());
+//			Anuncio anuncio1 = anuncioDAO.findByTitulo("O Último Olimpiano");
+//			Anuncio anuncio2 = anuncioDAO.findByTitulo("Como fazer amigos e influenciar pessoas");
+//			Anuncio anuncio3 = anuncioDAO.findByTitulo("O Último Olimpiano");
 			
 			
 			return "meus_pedidos_busca";}
